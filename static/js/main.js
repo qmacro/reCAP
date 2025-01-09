@@ -108,24 +108,61 @@ var main = new Vue({
   el: '#main',
   data() {
    return {
-    team: [
-      {
-        name: 'Margot Wollny',
-        location: 'Walldorf',
-        image: 'images/team/margot-wollny.png'
-      },
-      {
-        name: 'Fabian Tempel',
-        location: 'Potsdam',
-        image: 'images/team/fabian-tempel.jpg'
-      },
-      {
-        name: 'Inna Atanasova',
-        location: 'Montreal',
-        image: 'images/team/Inna.jpg'
-      },
-    ]
-   }
+     team: [
+       {
+         name: "Margot Wollny",
+         location: "Walldorf",
+         image: "images/committee/margot-wollny.png",
+       },
+       {
+         name: "Fabian Tempel",
+         location: "Potsdam",
+         image: "images/committee/margot-wollny.png",
+       },
+       {
+         name: "Inna Atanasova",
+         location: "Montreal",
+         image: "images/committee/margot-wollny.png",
+       },
+     ],
+     committee: [
+       {
+         name: "Daniel Hutzel",
+         role: "CPO CAP",
+         image: "images/committee/margot-wollny.png",
+       },
+       {
+         name: "Ole Lilienthal",
+         role: "Unit Lead CAP",
+         image: "images/committee/margot-wollny.png",
+       },
+       {
+         name: "DJ Adams",
+         role: "Developer Advocate",
+         image: "images/committee/margot-wollny.png",
+       },
+       {
+         name: "Volker Buzek",
+         role: "Camunda, SAP Mentor",
+         image: "images/committee/margot-wollny.png",
+       },
+       {
+         name: "Gregor Wolf",
+         role: "Computerservice Wolf, SAP Mentor",
+         image: "images/committee/margot-wollny.png",
+       },
+       {
+         name: "Martin Stenzig",
+         role: "alphaOak",
+         image: "images/committee/margot-wollny.png",
+       },
+       {
+         name: "Sebastian Schmidt ",
+         role: "Manager CAP",
+         image: "images/committee/margot-wollny.png",
+       },
+     ],
+   };
   }
 });
 

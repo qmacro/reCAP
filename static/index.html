@@ -131,13 +131,19 @@
 
 				<h3>Call for Content</h3>
 
-				<p>The Call for Proposals for this year's UI5con opens on <time datetime="2025-01-23">January 23rd, 2025</time>, and closes on <time datetime="2025-03-10T23:59:00"> March 10th, 2025, at 23:59 CEST</time>. Make sure to submit your proposal within this period to be considered for the event.</p>
+				<p>
+					The Call for Proposals for this year's reCAP is open until <time datetime="2025-03-10T23:59:00">March 10, 2025, at 23:59 CEST</time>. Don't miss your chance to
+					become a speaker — submit your proposal <a href="https://recap.cfapps.eu12.hana.ondemand.com/" rel="noopener noreferrer" target="_blank"
+					   hreflang="en">here</a> before the deadline to be considered for the event.
+				</p>
+
+				
 
 				<h3>Volunteers wanted!</h3>
 
-				<p>Are you a doer and love to get things done? Then why not volunteer with us and secure your ticket!<br>
+				<p>Become a volunteer and support us either onsite during the conference or online with the conference preparation!<br>
 					Check out the <a href="location.html#volunteer">Volunteering Options</a> or
-					<a href="mailto:openui5@sap.com?subject=[Volunteer UI5con 2025]">Contact Us</a> directly.
+					<a href="mailto:recap.conf@gmail.com?subject=[reCAP 2025] Question">Contact Us</a> directly.
 				</p>
 
 			</div>
@@ -160,6 +166,33 @@
 					the detailed prospectus today.
 				</p>
 
+			</div>
+		</section>
+
+		<section>
+			<div class="reCAP-wrap">
+		
+				<h2 class="reCAP-section-heading">
+					<span aria-hidden="true">&#8593;</span>
+					<span>Voting Committee</span>
+				</h2>
+
+				<ul class="reCAP-people-list reCAP-people-list--team" role="list">
+					<li role="listitem" class="reCAP-people-list-item" v-for="member in committee" :key="member.name">
+						<figure class="reCAP-people-member">
+				
+							<img :src="member.image" :alt="`Portrait of ${member.name}`">
+				
+							<figcaption>
+								<p class="reCAP-people-name">{{member.name}}</p>
+								<small>{{member.role}}</small>
+							</figcaption>
+						</figure>
+				
+					</li>
+				</ul>
+		
+		
 			</div>
 		</section>
 
