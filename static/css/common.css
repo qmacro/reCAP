@@ -3,7 +3,7 @@
 	--background-color-alternate: #f5f5f5;
 	--brand-color: #0090DA;
   	--brand-color-alt: #00C8E8;
-	--brand-color-contrast: #B85000; /* #FF741A */
+	--brand-color-contrast: #007C8F; /* #FF741A */
 	--dark-brand-color: #223548;
 	--text-color: #000;
 	--text-color-contrast: #fff;
@@ -1097,6 +1097,12 @@ footer {
 	flex-wrap: wrap;
 	flex: 1 0 0;
 	margin-inline-start: 1rem;
+}
+
+.reCAP-links-container svg {
+	width: 20px;
+	height: 20px;
+	margin-inline-end: .5rem;
 }
 
 @media only screen and (min-width: 768px) {

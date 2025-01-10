@@ -4,7 +4,7 @@ var nav = new Vue({
   el: '#nav',
   data() {
     return {
-      
+
     };
   },
 });
@@ -51,7 +51,7 @@ var header = new Vue({
           return ''
       }
 
-      
+
 
       let description = "Join us for UI5con 2025, the community event organized by the developers of the OpenUI5 framework. This event brings together the UI5 community to meet, learn from each other, and have fun. The event will take place on July 9, 2025, in SAP-Allee 27, St.Leon-Rot, Germany. For those unable to attend in person, parts of the event will be live-streamed on the UI5 YouTube channel, allowing everyone to participate and engage with the community. \n\nEvent Details: \nDate: July 9, 2025 \nLocation: SAP-Allee 27, St.Leon-Rot \nLive Stream: https://www.youtube.com/user/openui5videos \nWebsite: https://openui5.org/ui5con/germany2025/\n\nImportant Dates:\nCall for Content: January 23, 2025 - March 10, 2025\nRegistration for Onsite Attendees: Opens on April 10, 2025\nEarly Bird Ticket Application: Ends March 10, 2025\n\nVisit our event page at https://openui5.org/ui5con for more information and stay tuned for updates. If you have any further questions, please don't hesitate to contact us at openui5@sap.com.\n\nWe look forward to seeing you at UI5con 2025!"
 
@@ -129,37 +129,37 @@ var main = new Vue({
        {
          name: "Daniel Hutzel",
          role: "CPO CAP",
-         image: "images/committee/margot-wollny.png",
+         image: "images/committee/daniel-hutzel.jpg",
        },
        {
          name: "Ole Lilienthal",
          role: "Unit Lead CAP",
-         image: "images/committee/margot-wollny.png",
+         image: "images/committee/ole-lilienthal.jpg",
        },
        {
          name: "DJ Adams",
          role: "Developer Advocate",
-         image: "images/committee/margot-wollny.png",
+         image: "images/committee/dj-adams.jpg",
        },
        {
          name: "Volker Buzek",
          role: "Camunda, SAP Mentor",
-         image: "images/committee/margot-wollny.png",
+         image: "images/committee/volker-buzek.jpg",
        },
        {
          name: "Gregor Wolf",
          role: "Computerservice Wolf, SAP Mentor",
-         image: "images/committee/margot-wollny.png",
+         image: "images/committee/gregor-wolf.webp",
        },
        {
          name: "Martin Stenzig",
          role: "alphaOak",
-         image: "images/committee/margot-wollny.png",
+         image: "images/committee/martin-stenzig.jpg",
        },
        {
          name: "Sebastian Schmidt ",
          role: "Manager CAP",
-         image: "images/committee/margot-wollny.png",
+         image: "images/committee/sebastian-schmidt.jpg",
        },
      ],
    };
@@ -170,7 +170,7 @@ var footer = new Vue({
   el: '#footer',
   data() {
     return {
-      
+
     };
   },
 });
