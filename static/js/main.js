@@ -17,7 +17,7 @@ var header = new Vue({
     };
   },
   mounted() {
-    // console.log(this.createCalendars());
+    console.log(this.createCalendars());
   },
   methods: {
     toggleCalendars() {
@@ -51,13 +51,18 @@ var header = new Vue({
           return ''
       }
 
+      let description =
+        "Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more.\n\nFind more information here: https://recap-conf.dev/\n(Links to live streams and recordings will be available there)\n\nImportant Dates:\nCall for Content: until March 10, 2025\nRegistration for Onsite Attendees: Opens on April 10, 2025\nEarly Bird Ticket Application: Ends March 10, 2025\nGet in contact with us in case of further questions: recap.conf@gmail.com.\n\nYour re>≡CAP orga team";
 
+      let descriptionOffice = `Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more… 
+      <br><br>Find more information here: https://recap-conf.dev/  
+      <br>(Links to live streams and recordings will be available there)
+      <br><br> Important Dates: <br> Call for Content: until March 10, 2025 <br> Registration for Onsite Attendees: Opens on April 10, 2025 <br> Early Bird Ticket Application: Ends March 10, 2025 <br><br>Get in contact with us in case of further questions: recap.conf@gmail.com.<br><br> Your re>≡CAP orga team`;
 
-      let description = "Join us for UI5con 2025, the community event organized by the developers of the OpenUI5 framework. This event brings together the UI5 community to meet, learn from each other, and have fun. The event will take place on July 9, 2025, in SAP-Allee 27, St.Leon-Rot, Germany. For those unable to attend in person, parts of the event will be live-streamed on the UI5 YouTube channel, allowing everyone to participate and engage with the community. \n\nEvent Details: \nDate: July 9, 2025 \nLocation: SAP-Allee 27, St.Leon-Rot \nLive Stream: https://www.youtube.com/user/openui5videos \nWebsite: https://openui5.org/ui5con/germany2025/\n\nImportant Dates:\nCall for Content: January 23, 2025 - March 10, 2025\nRegistration for Onsite Attendees: Opens on April 10, 2025\nEarly Bird Ticket Application: Ends March 10, 2025\n\nVisit our event page at https://openui5.org/ui5con for more information and stay tuned for updates. If you have any further questions, please don't hesitate to contact us at openui5@sap.com.\n\nWe look forward to seeing you at UI5con 2025!"
-
-      let descriptionOffice = `Join us for UI5con 2025, the community event organized by the developers of the OpenUI5 framework. This event brings together the UI5 community to meet, learn from each other, and have fun. The event will take place on July 9, 2025, in SAP-Allee 27, St.Leon-Rot, Germany. For those unable to attend in person, parts of the event will be live-streamed on the UI5 YouTube channel, allowing everyone to participate and engage with the community. <br><br> Event Details: <br> Date: July 9, 2025 <br> Location: SAP-Allee 27, St.Leon-Rot <br> Live Stream: https://www.youtube.com/user/openui5videos <br> Website: https://openui5.org/ui5con/germany2025/ <br><br> Important Dates: <br> Call for Content: January 23, 2025 - March 10, 2025 <br> Registration for Onsite Attendees: Opens on April 10, 2025 <br> Early Bird Ticket Application: Ends March 10, 2025 <br><br> Visit our event page at https://openui5.org/ui5con for more information and stay tuned for updates. If you have any further questions, please don't hesitate to contact us at openui5@sap.com.<br><br> We look forward to seeing you at UI5con 2025!`
-
-      let descriptionGoogle = `<br>Join us for UI5con 2025, the community event organized by the developers of the OpenUI5 framework. This event brings together the UI5 community to meet, learn from each other, and have fun. The event will take place on July 9, 2025, in SAP-Allee 27, St.Leon-Rot, Germany. For those unable to attend in person, parts of the event will be live-streamed on the UI5 YouTube channel, allowing everyone to participate and engage with the community. <br><br>Event Details: <br>Date: July 9, 2025 <br>Location: SAP-Allee 27, St.Leon-Rot <br>Live Stream: <a href="https://www.youtube.com/user/openui5videos" target="_blank">https://www.youtube.com/user/openui5videos</a> <br>Website: <a href="https://openui5.org/ui5con/germany2025/" target="_blank">https://openui5.org/ui5con/germany2025/</a><br><br>Important Dates:<br>Call for Content: January 23, 2025 - March 10, 2025<br>Registration for Onsite Attendees: Opens on April 10, 2025<br>Early Bird Ticket Application: Ends March 10, 2025<br><br>Visit our event page at <a href="https://openui5.org/ui5con" target="_blank">https://openui5.org/ui5con</a> for more information and stay tuned for updates. If you have any further questions, please don't hesitate to contact us at <a href="mailto:openui5@sap.com">openui5@sap.com</a>.<br><br>We look forward to seeing you at UI5con 2025!`
+      let descriptionGoogle = `<br>Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more…
+      <br><br>Find more information here: https://recap-conf.dev/  
+      <br>(Links to live streams and recordings will be available there) 
+      <br><br>Important Dates:<br>Call for Content: until March 10, 2025<br>Registration for Onsite Attendees: Opens on April 10, 2025<br>Early Bird Ticket Application: Ends March 10, 2025<br><br>Get in contact with us in case of further questions: <a href="mailto:recap.conf@gmail.com">recap.conf@gmail.com</a>.<br><br>Your re>≡CAP orga team`;
 
       let cal = [
         'BEGIN:VCALENDAR',
@@ -65,7 +70,7 @@ var header = new Vue({
         'BEGIN:VEVENT',
         'DTSTART:' + calendarStartDate,
         'DTEND:' + calendarEndDate,
-        'SUMMARY:' + 'Save the Date: UI5con 2025',
+        'SUMMARY:' + 'Save the Date: reCAP 2025',
         'LOCATION:' + 'SAP SE (ROT03), SAP-Allee 27, 68789 St. Leon-Rot (Germany)',
         'DESCRIPTION:' + removeForbiddenCharachtersOutlook(description),
         'UID:' + '1',
@@ -79,7 +84,7 @@ var header = new Vue({
             google: encodeURI([
               'https://www.google.com/calendar/render',
               '?action=TEMPLATE',
-              '&text=' + 'Save the Date: UI5con 2025',
+              '&text=' + 'Save the Date: reCAP 2025',
               '&dates=' + calendarStartDate ,
               '/' + calendarEndDate,
               '&location='+'SAP SE (ROT03), SAP-Allee 27, 68789 St. Leon-Rot (Germany)',
@@ -90,7 +95,7 @@ var header = new Vue({
               'https://outlook.office365.com/owa/',
               '?path=/calendar/action/compose',
               '&rru=addevent',
-              '&subject=' + 'Save the Date: UI5con 2025',
+              '&subject=' + 'Save the Date: reCAP 2025',
               '&startdt=' + officeStartDate,
               '&enddt=' + officeEndDate,
               '&location=' + 'SAP SE (ROT03), SAP-Allee 27, 68789 St. Leon-Rot (Germany)',
