@@ -586,7 +586,7 @@ a:is(.active) {
 @media only screen and (min-width: 1024px) {
 
 	.reCAP-nav {
-		padding-block: 1rem 1rem;
+		padding-block: 1rem 0;
 	}
 }
 
