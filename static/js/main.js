@@ -54,14 +54,14 @@ var header = new Vue({
       let description =
         "Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more.\n\nFind more information here: https://recap-conf.dev/\n(Links to live streams and recordings will be available there)\n\nImportant Dates:\nCall for Content: until March 10, 2025\nRegistration for Onsite Attendees: Opens on April 10, 2025\nEarly Bird Ticket Application: Ends March 10, 2025\nGet in contact with us in case of further questions: recap.conf@gmail.com.\n\nYour re>≡CAP orga team";
 
-      let descriptionOffice = `Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more… 
-      <br><br>Find more information here: https://recap-conf.dev/  
+      let descriptionOffice = `Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more…
+      <br><br>Find more information here: https://recap-conf.dev/
       <br>(Links to live streams and recordings will be available there)
       <br><br> Important Dates: <br> Call for Content: until March 10, 2025 <br> Registration for Onsite Attendees: Opens on April 10, 2025 <br> Early Bird Ticket Application: Ends March 10, 2025 <br><br>Get in contact with us in case of further questions: recap.conf@gmail.com.<br><br> Your re>≡CAP orga team`;
 
       let descriptionGoogle = `<br>Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more…
-      <br><br>Find more information here: https://recap-conf.dev/  
-      <br>(Links to live streams and recordings will be available there) 
+      <br><br>Find more information here: https://recap-conf.dev/
+      <br>(Links to live streams and recordings will be available there)
       <br><br>Important Dates:<br>Call for Content: until March 10, 2025<br>Registration for Onsite Attendees: Opens on April 10, 2025<br>Early Bird Ticket Application: Ends March 10, 2025<br><br>Get in contact with us in case of further questions: <a href="mailto:recap.conf@gmail.com">recap.conf@gmail.com</a>.<br><br>Your re>≡CAP orga team`;
 
       let cal = [
@@ -155,6 +155,16 @@ var main = new Vue({
          name: "Gregor Wolf",
          role: "Computerservice Wolf, SAP Mentor",
          image: "images/committee/gregor-wolf.webp",
+       },
+       {
+         name: "Marian Zeis",
+         role: "Independent SAP Consultant & Developer",
+         image: "images/committee/marian-zeis.jpg",
+       },
+       {
+         name: "Wouter Lemaire",
+         role: "SAP Solution Architect, Developer & Mentor",
+         image: "images/committee/wouter-lemaire.jpg",
        },
        {
          name: "Martin Stenzig",
