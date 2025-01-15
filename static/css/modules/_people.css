@@ -1,0 +1,37 @@
+.reCAP-people-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+	justify-content: center;
+	gap: 1rem;
+}
+
+.reCAP-people-list > li:is(:hover, :focus-within) .reCAP-people-portrait {
+	transform: scale(1.07);
+}
+
+.reCAP-people-member {
+	margin: 0;
+}
+
+.reCAP-people-member img {
+	max-width: 100%;
+	inline-size: 100%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
+
+.reCAP-people-name {
+	font-weight: 600;
+	margin-block-start: .3rem;
+	margin-block-end: 0;
+}
+
+@media only screen and (min-width: 768px) {
+
+	.reCAP-people-list {
+		grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+	}
+}
