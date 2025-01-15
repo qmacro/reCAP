@@ -1119,19 +1119,23 @@ footer {
 /* ---------------------------- misc ----------------------------  */
 
 .reCAP-location-address {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+	position: relative;
 }
 
 .reCAP-location-address address {
-	flex: 1 0 50%;
+	position: absolute;
+	bottom: 4rem;
+	right: 1rem;
+	background: var(--background-color);
+	z-index: 1;
+	border: 1px solid var(--brand-color-alt);
+	padding: 1vw 2vw;
 }
 
 .reCAP-location-address img {
 	max-width: 100%;
 	margin-block-end: 3rem;
-	aspect-ratio: 1 / 1;
+	aspect-ratio: 16 / 9;
 	inline-size: 100%;
 	object-fit: cover;
 }
