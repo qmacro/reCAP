@@ -137,6 +137,11 @@ var main = new Vue({
          image: "images/committee/daniel-hutzel.jpg",
        },
        {
+         name: "Mariana Naboka",
+         role: "Fiori Elements Expert",
+         image: "images/committee/mariana-naboka.png",
+       },
+       {
          name: "Ole Lilienthal",
          role: "Unit Lead CAP",
          image: "images/committee/ole-lilienthal.jpg",
