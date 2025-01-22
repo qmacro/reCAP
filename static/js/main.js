@@ -138,7 +138,7 @@ var main = new Vue({
        },
        {
          name: "Mariana Naboka",
-         role: "Fiori Elements Expert",
+         role: "Fiori Elements & Tools Expert",
          image: "images/committee/mariana-naboka.png",
        },
        {
