@@ -31,9 +31,9 @@ Vue.component("nav-section", {
         <li>
             <a href="location.html" :class="{ active: isActive('location') }" :aria-current="isActive('location')">Location</a>
         </li>
-        <!--<li>
+        <li>
             <a href="sponsors.html" :class="{ active: isActive('sponsors') }" :aria-current="isActive('sponsors')">Sponsors</a>
-        </li>-->
+        </li>
         <!--<li>
             <a href="about.html" :class="{ active: isActive('about') }" :aria-current="isActive('about')">About</a>
         </li>-->

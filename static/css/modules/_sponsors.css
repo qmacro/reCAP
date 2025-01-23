@@ -1,0 +1,149 @@
+/* ------------------------- Sponsors Section -------------------------  */
+
+.reCAP-sponsors-logos {
+	display: flex;
+	gap: 4rem;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-block-end: 2rem;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.reCAP-sponsors-logos a {
+	display: block;
+}
+
+.reCAP-sponsors-logos svg,
+.reCAP-sponsors-logos img {
+	width: 10rem;
+	fill: var(--logo-color);
+	color: var(--logo-color);
+	display: block;
+	height: auto;
+}
+
+/* ------------------------- Sponsors Page -------------------------  */
+
+.reCAP-sponsors-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.reCAP-sponsors-list>li {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-block-end: 1rem;
+	gap: clamp(1rem, 5vw, 2rem);
+	border-bottom: 4px solid var(--background-color-alternate);
+}
+
+.reCAP-sponsors-list li:last-child {
+	border-bottom: none;
+}
+
+.reCAP-sponsors-list li div:first-child {
+	gap: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex: 1 0 auto;
+}
+
+.reCAP-sponsors-logo {
+	display: block;
+}
+
+.reCAP-sponsors-logo svg,
+.reCAP-sponsors-logo img {
+	width: 15rem;
+	height: auto;
+}
+
+.reCAP-sponsors-badge {
+	display: inline-block;
+	border-radius: 4px;
+	padding: .1rem .5rem;
+	margin-block-end: .3rem;
+}
+
+.reCAP-sponsors-badge.diamond {
+	background: linear-gradient(to top, #9ac5db, #b8d8e7);
+}
+
+.reCAP-sponsors-badge.platinum {
+	background: linear-gradient(to bottom, #E5E4E2, #aab9c4);
+}
+
+.reCAP-sponsors-badge.gold {
+	background-color: gold;
+}
+
+.reCAP-sponsors-badge.silver {
+	background-color: #c0c0c0;
+}
+
+.reCAP-sponsors-socials {
+	list-style-type: none;
+	padding: 0;
+}
+
+.reCAP-sponsors-socials li {
+	display: inline-block;
+}
+
+.reCAP-sponsors-socials .icon {
+	width: 1.4rem;
+	height: 1.4rem;
+	display: inline-block;
+	margin-inline-end: .5rem;
+	transform: translateY(-1px);
+	color: inherit;
+}
+
+@media only screen and (min-width: 800px) {
+	.reCAP-sponsors-list>li {
+		flex-direction: row;
+	}
+
+	.reCAP-sponsors-list li div:first-child {
+		align-items: center;
+		margin-block-end: 2rem;
+		flex: 0 0 15rem;
+	}
+
+	.reCAP-sponsors-logo {
+		margin-block-start: 2rem;
+	}
+}
+
+/* Sponsor specific */
+
+svg.asbrucon {
+	fill: #000;
+}
+
+svg.aarini {
+	color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+
+	.reCAP-sponsors-badge.diamond,
+	.reCAP-sponsors-badge.platinum,
+	.reCAP-sponsors-badge.gold,
+	.reCAP-sponsors-badge.silver {
+		color: var(--btn-bg-color);
+	}
+
+	svg.asbrucon,
+	svg.aarini {
+		color: var(--logo-color);
+		fill: var(--logo-color);
+	}
+}

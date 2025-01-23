@@ -874,52 +874,6 @@ p ~ .reCAP-section-heading {
 	}
 }
 
-/* ------------------------- Sponsors Section -------------------------  */
-
-.reCAP-sponsors {
-
-}
-
-.reCAP-sponsors-cta {
-	text-align: center;
-	padding-block-start: 4rem;
-}
-
-.reCAP-sponsors-logos {
-	display: flex;
-	gap: 4rem;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	margin-block-end: 2rem;
-}
-
-.reCAP-sponsors ul {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-
-.reCAP-sponsors a {
-	display: block;
-}
-
-.reCAP-sponsors svg,
-.reCAP-sponsors picture {
-	width: clamp(14rem, 15vw, 18rem);
-	fill: var(--logo-color);
-	color: var(--logo-color);
-	display: block;
-	height: 4rem;
-}
-
-.reCAP-sponsors picture img {
-	max-height: 4rem;
-	display: block;
-	margin: auto;
-}
-
 /* ------------------------- Code Connect Section -------------------------  */
 .reCAP-cc-links {
 	gap: 2rem;
