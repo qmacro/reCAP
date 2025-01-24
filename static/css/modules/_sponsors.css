@@ -1,6 +1,6 @@
 /* ------------------------- Sponsors Section -------------------------  */
 
-.reCAP-sponsors-logos {
+.sponsors-logos {
 	display: flex;
 	gap: 4rem;
 	flex-direction: row;
@@ -13,12 +13,12 @@
 	padding: 0;
 }
 
-.reCAP-sponsors-logos a {
+.sponsors-logos a {
 	display: block;
 }
 
-.reCAP-sponsors-logos svg,
-.reCAP-sponsors-logos img {
+.sponsors-logos svg,
+.sponsors-logos img {
 	width: 10rem;
 	fill: var(--logo-color);
 	color: var(--logo-color);
@@ -28,13 +28,13 @@
 
 /* ------------------------- Sponsors Page -------------------------  */
 
-.reCAP-sponsors-list {
+.sponsors-list {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.reCAP-sponsors-list>li {
+.sponsors-list>li {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -43,11 +43,11 @@
 	border-bottom: 4px solid var(--background-color-alternate);
 }
 
-.reCAP-sponsors-list li:last-child {
+.sponsors-list li:last-child {
 	border-bottom: none;
 }
 
-.reCAP-sponsors-list li div:first-child {
+.sponsors-list li div:first-child {
 	gap: 1.5rem;
 	display: flex;
 	flex-direction: column;
@@ -55,49 +55,49 @@
 	flex: 1 0 auto;
 }
 
-.reCAP-sponsors-logo {
+.sponsors-logo {
 	display: block;
 }
 
-.reCAP-sponsors-logo svg,
-.reCAP-sponsors-logo img {
+.sponsors-logo svg,
+.sponsors-logo img {
 	width: 15rem;
 	height: auto;
 }
 
-.reCAP-sponsors-badge {
+.sponsors-badge {
 	display: inline-block;
 	border-radius: 4px;
 	padding: .1rem .5rem;
 	margin-block-end: .3rem;
 }
 
-.reCAP-sponsors-badge.diamond {
+.sponsors-badge.diamond {
 	background: linear-gradient(to top, #9ac5db, #b8d8e7);
 }
 
-.reCAP-sponsors-badge.platinum {
+.sponsors-badge.platinum {
 	background: linear-gradient(to bottom, #E5E4E2, #aab9c4);
 }
 
-.reCAP-sponsors-badge.gold {
+.sponsors-badge.gold {
 	background-color: gold;
 }
 
-.reCAP-sponsors-badge.silver {
+.sponsors-badge.silver {
 	background-color: #c0c0c0;
 }
 
-.reCAP-sponsors-socials {
+.sponsors-socials {
 	list-style-type: none;
 	padding: 0;
 }
 
-.reCAP-sponsors-socials li {
+.sponsors-socials li {
 	display: inline-block;
 }
 
-.reCAP-sponsors-socials .icon {
+.sponsors-socials .icon {
 	width: 1.4rem;
 	height: 1.4rem;
 	display: inline-block;
@@ -107,17 +107,17 @@
 }
 
 @media only screen and (min-width: 800px) {
-	.reCAP-sponsors-list>li {
+	.sponsors-list>li {
 		flex-direction: row;
 	}
 
-	.reCAP-sponsors-list li div:first-child {
+	.sponsors-list li div:first-child {
 		align-items: center;
 		margin-block-end: 2rem;
 		flex: 0 0 15rem;
 	}
 
-	.reCAP-sponsors-logo {
+	.sponsors-logo {
 		margin-block-start: 2rem;
 	}
 }
@@ -138,10 +138,10 @@ svg.brandeis text {
 
 @media (prefers-color-scheme: dark) {
 
-	.reCAP-sponsors-badge.diamond,
-	.reCAP-sponsors-badge.platinum,
-	.reCAP-sponsors-badge.gold,
-	.reCAP-sponsors-badge.silver {
+	.sponsors-badge.diamond,
+	.sponsors-badge.platinum,
+	.sponsors-badge.gold,
+	.sponsors-badge.silver {
 		color: var(--btn-bg-color);
 	}
 
