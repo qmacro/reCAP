@@ -132,6 +132,10 @@ svg.aarini {
 	color: #000;
 }
 
+svg.brandeis text {
+	fill: #0C3C60;
+}
+
 @media (prefers-color-scheme: dark) {
 
 	.reCAP-sponsors-badge.diamond,
@@ -145,5 +149,9 @@ svg.aarini {
 	svg.aarini {
 		color: var(--logo-color);
 		fill: var(--logo-color);
+	}
+
+	svg.brandeis text {
+		fill: #fff;
 	}
 }
