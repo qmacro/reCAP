@@ -18,7 +18,7 @@ Vue.component("nav-section", {
             <a href="index.html" class="" :aria-current="isActive('index')" aria-label="Home">
                 <span class="sr-only">Link to Home Page</span>
 
-                <img class="recap-logo" src="./images/recap_logo.svg" alt="logo of recap conference" class="reCAP-logo">
+                <img class="logo" src="./images/recap_logo.svg" alt="logo of recap conference" class="logo">
 
             </a>
         </li>

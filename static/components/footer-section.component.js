@@ -1,9 +1,9 @@
 'use strict';
 Vue.component("footer-section", {
-  template:`<div class="reCAP-wrap">
+  template:`<div class="wrap">
 
-      <div class="reCAP-footer-container">
-          <div class="reCAP-links-container">
+      <div class="footer-container">
+          <div class="links-container">
                 <a href="https://www.computerservice-wolf.com/impressum.html" rel="noopener noreferrer" target="_blank"
                   hreflang="en">Legal Notice</a>
 

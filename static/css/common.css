@@ -482,7 +482,7 @@ a:is(:hover) {
 	text-underline-offset: 3px;
 }
 
-a:not(.reCAP-btn):is(:focus, .active, .active:hover) {
+a:not(.btn):is(:focus, .active, .active:hover) {
 	outline: none;
 	color: var(--brand-color-alt);
 	text-decoration: underline;
@@ -495,7 +495,7 @@ a:is(.active) {
 	text-decoration-color: var(--brand-color);
 }
 
-.reCAP-btn {
+.btn {
 	display: inline-block;
 	border-radius: 5px;
 	border: 1px solid var(--dark-brand-color);
@@ -511,24 +511,24 @@ a:is(.active) {
 	transition: none;
 }
 
-.reCAP-btn:is(:hover, :focus) {
+.btn:is(:hover, :focus) {
 	text-decoration: none;
 	background: var(--btn-bg-color);
 	color: var(--text-color-contrast);
 }
 
-.reCAP-btn:is(:focus) {
+.btn:is(:focus) {
 	text-decoration: none;
 	background: var(--btn-bg-color);
 	color: var(--text-color-contrast);
 }
 
-.reCAP-btn:is(:focus-within) {
+.btn:is(:focus-within) {
 	outline: 2px solid var(--text-color-contrast);
 	outline-offset: -4px;
 }
 
-.reCAP-btn .icon {
+.btn .icon {
 	width: 1.4rem;
 	height: 1.4rem;
 	display: inline-block;
@@ -539,7 +539,7 @@ a:is(.active) {
 
 /* ------------------------ Main Navigation ---------------------------  */
 
-.reCAP-nav {
+.nav {
 	max-width: 1240px;
 	margin-block: 0;
 	margin-inline: auto;
@@ -547,7 +547,7 @@ a:is(.active) {
 	padding-inline: 3vw;
 }
 
-.reCAP-nav ul {
+.nav ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -559,48 +559,48 @@ a:is(.active) {
 	gap: .7rem 1.5rem;
 }
 
-.reCAP-nav a:not(:hover, :focus, :focus-within) {
+.nav a:not(:hover, :focus, :focus-within) {
 	text-decoration-color: transparent;
 }
 
-.reCAP-nav li:first-child {
+.nav li:first-child {
 	flex: 1 0 100%
 }
 
-.reCAP-nav li:first-child a {
+.nav li:first-child a {
 	justify-content: center;
 }
 
 @media only screen and (min-width: 768px) {
 
-	.reCAP-nav li:first-child {
+	.nav li:first-child {
 		flex: 0 0 auto;
 		margin-inline-end: auto;
 	}
 
-	.reCAP-nav li:first-child a {
+	.nav li:first-child a {
 		justify-content: flex-start;
 	}
 }
 
 @media only screen and (min-width: 1024px) {
 
-	.reCAP-nav {
+	.nav {
 		padding-block: 1rem 0;
 	}
 }
 
-.reCAP-nav a:not(.reCAP-header-link) {
+.nav a:not(.header-link) {
 	font-weight: 400;
 	font-size: var(--type-0);
 	white-space: nowrap;
 }
 
-.reCAP-header-link {
+.header-link {
 	display: block;
 }
 
-.reCAP-logo {
+.logo {
 	width: 100px;
 }
 
@@ -613,7 +613,7 @@ main {
 	background-color: var(--background-color-alternate);
 }
 
-.reCAP-wrap {
+.wrap {
 	max-width: 1240px;
 	margin-block: 0;
 	margin-inline: auto;
@@ -623,25 +623,25 @@ main {
 
 /* @media only screen and (min-width: 1440px) {
 
-	.reCAP-wrap,
-	.reCAP-nav {
+	.wrap,
+	.nav {
 		padding-inline: 5vw;
 	}
 } */
 
-.reCAP-grid-wrap {
+.grid-wrap {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
 	gap: 2rem;
 }
 
-.reCAP-grid-wrap--split {
+.grid-wrap--split {
 	grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
 	gap: 4rem;
 }
 
 /* --------------------------- Main Contents ---------------------------  */
-.reCAP-head {
+.head {
 	position: relative;
 }
 
@@ -651,13 +651,13 @@ main {
 	background-size: 610px auto;
 }
 
-.reCAP-head-banner {
+.head-banner {
 	padding-block-start: 2rem;
 	padding-block-end: 3rem;
 	padding-inline: 2rem;
 }
 
-.reCAP-head .reCAP-wrap {
+.head .wrap {
 	overflow: hidden;
 	position: relative;
 	z-index: 2;
@@ -679,7 +679,7 @@ main {
 		background-position: -45px 0px;
 	}
 
-	.reCAP-head-banner {
+	.head-banner {
 		padding-block-start: 4rem;
 		padding-block-end: 3rem;
 		padding-inline: 3rem;
@@ -693,7 +693,7 @@ main {
 		background-position: center 0px;
 	}
 
-	.reCAP-head-banner {
+	.head-banner {
 		padding-block-start: 5rem;
 		padding-block-end: 5rem;
 		padding-inline: 7rem;
@@ -708,14 +708,14 @@ main {
 		background-size: auto 344px;
 	}
 
-	.reCAP-head-banner {
+	.head-banner {
 		padding-block-start: 7rem;
 		padding-block-end: 7rem;
 		padding-inline: 8rem;
 	}
 }
 
-.reCAP-head-detail {
+.head-detail {
 	display: block;
 	font-weight: 800;
 	text-align: center;
@@ -723,45 +723,45 @@ main {
 	font-size: var(--type-2);
 }
 
-.reCAP-head-detail small {
+.head-detail small {
 	font-weight: 500;
 }
 
-.reCAP-head-container {
+.head-container {
 	display: flex;
 	flex-direction: column;
 	gap: 3rem;
 	align-items: center;
 }
 
-.reCAP-head-container h1 {
+.head-container h1 {
 	margin-block-start: 0;
 	font-size: var(--type-4);
 }
 
 @media only screen and (min-width: 821px) {
 
-	.reCAP-head-container {
+	.head-container {
 		gap: 2rem;
 		flex-direction: row;
 	}
 
-	.reCAP-head-container img {
+	.head-container img {
 		width: 35%;
 		align-self: flex-start;
 	}
 
-	.reCAP-head-detail {
+	.head-detail {
 		text-align: start;
 	}
 }
 
 /* ---------------------------- Calendars -----------------------------  */
-.reCAP-calendars {
+.calendars {
 	height: 2rem;
 }
 
-.reCAP-calendars-list {
+.calendars-list {
 	list-style: none;
 	gap: 1rem;
 	display: flex;
@@ -773,7 +773,7 @@ main {
 	width: max-content;
 }
 
-.reCAP-calendars-list a {
+.calendars-list a {
 	gap: 0.25rem;
 	display: flex;
 	text-align: center;
@@ -782,12 +782,12 @@ main {
 
 @media only screen and (min-width: 768px) {
 
-	.reCAP-calendars-list {
+	.calendars-list {
 		gap: 2rem;
 	}
 }
 
-.reCAP-section-heading {
+.section-heading {
 	width: fit-content;
 	padding-inline: 0.75rem;
 	padding-block: 0.25rem;
@@ -795,18 +795,18 @@ main {
 	border-top-width: 0.75rem;
 }
 
-p ~ .reCAP-section-heading {
+p ~ .section-heading {
 	margin-block-start: 4rem;
 }
 
 /* ------------------------------ Teaser -------------------------------  */
 
-.reCAP-teaser {
+.teaser {
 
 }
 
 /* ------------------------ Newsletter section -------------------------  */
-.reCAP-social-links {
+.social-links {
 	gap: 6vw;
 	display: flex;
 	padding-inline: 0;
@@ -816,7 +816,7 @@ p ~ .reCAP-section-heading {
 	transition: all 1s ease-in-out;
 }
 
-.reCAP-social-links a {
+.social-links a {
 	gap: 1rem;
 	display: flex;
 	align-items: center;
@@ -824,30 +824,30 @@ p ~ .reCAP-section-heading {
 	flex-direction: column;
 }
 
-.reCAP-social-links a svg {
+.social-links a svg {
 	transition: all 0.3s ease-in-out;
 }
 
-.reCAP-social-links a:is(:hover) svg {
+.social-links a:is(:hover) svg {
 	color: var(--brand-color);
 }
 
-.reCAP-social-links a:is(:focus) svg {
+.social-links a:is(:focus) svg {
 	color: var(--brand-color);
 	transform: scale(1.15);
 }
 
-.reCAP-social-links svg {
+.social-links svg {
 	width: 2rem;
 	height: 2rem;
 }
 
 @media only screen and (min-width: 768px) {
-	.reCAP-newsletter p {
+	.newsletter p {
 		width: 50%;
 	}
 
-	.reCAP-social-links {
+	.social-links {
 		gap: 2vw;
 	}
 }
@@ -875,7 +875,7 @@ p ~ .reCAP-section-heading {
 }
 
 /* ------------------------- Code Connect Section -------------------------  */
-.reCAP-cc-links {
+.cc-links {
 	gap: 2rem;
 	display: flex;
 	flex-wrap: wrap;
@@ -885,22 +885,22 @@ p ~ .reCAP-section-heading {
 	margin-block: 2rem;
 }
 
-.reCAP-cc-links li:first-child {
+.cc-links li:first-child {
 	flex: 1 0 100%;
 }
 
-.reCAP-cc-logo {
+.cc-logo {
 	height: 4rem;
 }
 
-.reCAP-cc-logo g {
+.cc-logo g {
 	animation-duration: 15s;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: forwards;
 	animation-iteration-count: infinite;
 }
 
-.reCAP-event-marker {
+.event-marker {
 	display: inline-block;
 	border-radius: 50%;
 	background-color: var(--logo-color);
@@ -914,107 +914,107 @@ p ~ .reCAP-section-heading {
 	transition: all .1s allow-discrete;
 }
 
-.reCAP-event-marker:is(span) {
+.event-marker:is(span) {
 	cursor: initial;
 }
 
-.reCAP-content-box .reCAP-event-marker {
+.content-box .event-marker {
 	margin-block: 0;
 	margin-inline-end: 0;
 	scroll-margin-block-start: 4rem;
 }
 
-.reCAP-content-box.reCAP-sponsors .reCAP-teaser-content {
+.content-box.sponsors .teaser-content {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-.reCAP-event-marker svg {
+.event-marker svg {
 	width: 1.6rem;
 	height: 1.9rem;
 	color: var(--white);
 }
 
 @media screen and (min-width: 768px) {
-	.reCAP-event-marker {
+	.event-marker {
 		width: 4rem;
 		height: 4rem;
 		line-height: 3.9rem;
 	}
 
-	.reCAP-event-marker svg {
+	.event-marker svg {
 		width: 2.6rem;
 		height: 3.9rem;
 	}
 
-	.reCAP-cc-logo {
+	.cc-logo {
 		height: 5.6rem;
 	}
 
-	.reCAP-cc-links li:first-child {
+	.cc-links li:first-child {
 		flex: none;
 	}
 }
 
-a.reCAP-event-marker-codejam,
-span.reCAP-event-marker-codejam {
+a.event-marker-codejam,
+span.event-marker-codejam {
 	background-color: var(--brand-color-codejam);
 	color: var(--brand-color-codejam);
 }
 
-a.reCAP-event-marker-codeconnect,
-span.reCAP-event-marker-codeconnect {
+a.event-marker-codeconnect,
+span.event-marker-codeconnect {
 	background-color: var(--logo-color);
 	color: var(--logo-color);
 }
 
-a.reCAP-event-marker-recap,
-span.reCAP-event-marker-recap {
+a.event-marker-recap,
+span.event-marker-recap {
 	background-color: var(--brand-color-recap);
 	color: var(--brand-color-recap);
 }
 
-a.reCAP-event-marker-ui5con,
-span.reCAP-event-marker-ui5con {
+a.event-marker-ui5con,
+span.event-marker-ui5con {
 	background-color: var(--brand-color-ui5con);
 	color: var(--brand-color-ui5con);
 }
 
-a.reCAP-event-marker-hanaconf,
-span.reCAP-event-marker-hanaconf {
+a.event-marker-hanaconf,
+span.event-marker-hanaconf {
 	background-color: var(--brand-color-hana);
 	color: var(--brand-color-hana);
 }
 
-a.reCAP-event-marker-hanaconf svg,
-span.reCAP-event-marker-hanaconf svg {
+a.event-marker-hanaconf svg,
+span.event-marker-hanaconf svg {
 	height: 2.5rem;
 }
 
-.reCAP-cc-links a.reCAP-event-marker:hover,
-.reCAP-cc-links a.reCAP-event-marker:focus {
+.cc-links a.event-marker:hover,
+.cc-links a.event-marker:focus {
 	outline: 2px solid currentColor;
 	outline-offset: 2px;
 }
 
-.reCAP-cc-links a.reCAP-event-marker-recap:hover,
-.reCAP-cc-links a.reCAP-event-marker-recap:focus {
+.cc-links a.event-marker-recap:hover,
+.cc-links a.event-marker-recap:focus {
 	color: var(--brand-color-recap);
 }
 
-.reCAP-cc-links a.reCAP-event-marker-hanaconf:hover,
-.reCAP-cc-links a.reCAP-event-marker-hanaconf:focus {
+.cc-links a.event-marker-hanaconf:hover,
+.cc-links a.event-marker-hanaconf:focus {
 	color: var(--brand-color-hana);
 }
 
-.reCAP-cc-links a.reCAP-event-marker-codejam:hover,
-.reCAP-cc-links a.reCAP-event-marker-codejam:focus {
+.cc-links a.event-marker-codejam:hover,
+.cc-links a.event-marker-codejam:focus {
 	color: var(--brand-color-codejam);
 }
 
-.reCAP-cc-links a.reCAP-event-marker-codeconnect:hover,
-.reCAP-cc-links a.reCAP-event-marker-codeconnect:focus {
+.cc-links a.event-marker-codeconnect:hover,
+.cc-links a.event-marker-codeconnect:focus {
 	color: var(--logo-color);
 }
 
@@ -1029,20 +1029,20 @@ footer {
 	fill: #008fd3;
 }
 
-.reCAP-footer-container {
+.footer-container {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;
 	justify-content: space-between;
 }
 
-.reCAP-footer-container p {
+.footer-container p {
 	text-wrap: wrap;
 	order: 3;
 	flex-basis: 100%;
 }
 
-.reCAP-links-container {
+.links-container {
 	gap: 1rem 2rem;
 	order: 3;
 	width: 100%;
@@ -1053,7 +1053,7 @@ footer {
 	margin-inline-start: 1rem;
 }
 
-.reCAP-links-container svg {
+.links-container svg {
 	width: 20px;
 	height: 20px;
 	margin-inline-end: .5rem;
@@ -1061,22 +1061,22 @@ footer {
 
 @media only screen and (min-width: 768px) {
 
-	.reCAP-links-container {
+	.links-container {
 		order: 2;
 	}
 
-	.reCAP-footer-container {
+	.footer-container {
 		align-items: center;
 	}
 }
 
 /* ---------------------------- misc ----------------------------  */
 
-.reCAP-location-address {
+.location-address {
 	position: relative;
 }
 
-.reCAP-location-address address {
+.location-address address {
 	position: absolute;
 	bottom: 4rem;
 	right: 1rem;
@@ -1086,7 +1086,7 @@ footer {
 	padding: 1vw 2vw;
 }
 
-.reCAP-location-address img {
+.location-address img {
 	max-width: 100%;
 	margin-block-end: 3rem;
 	aspect-ratio: 16 / 9;
@@ -1094,7 +1094,7 @@ footer {
 	object-fit: cover;
 }
 
-.reCAP-archive {
+.archive {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -1106,7 +1106,7 @@ footer {
 	gap: 2rem 1rem;
 }
 
-.reCAP-archive img {
+.archive img {
 	display: block;
 	max-width: 100%;
 	inline-size: 100%;
@@ -1115,18 +1115,18 @@ footer {
 	margin-block-end: .7rem;
 }
 
-.reCAP-archive a {
+.archive a {
 	font-weight: 700;
 	line-height: 1.2;
 	display: block;
 }
 
-.reCAP-archive a:not(:hover, :focus) {
+.archive a:not(:hover, :focus) {
 	text-decoration: none;
 	color: var(--text-color);
 }
 
-.reCAP-archive a small {
+.archive a small {
 	font-weight: 400;
 	display: block;
 }
