@@ -14,7 +14,7 @@ Vue.component("footer-section", {
                     </svg>Bluesky
                 </a>
 
-                <a href="https://www.linkedin.com/in/sebastian-schmidt-7722b2222/recent-activity/all/" rel="noopener noreferrer" target="_blank"
+                <a href="https://www.linkedin.com/company/recap-conference/" rel="noopener noreferrer" target="_blank"
                   hreflang="en">
                   <svg aria-hidden="true">
                         <use xlink:href="images/icons/sprite.svg#linkedin"></use>
