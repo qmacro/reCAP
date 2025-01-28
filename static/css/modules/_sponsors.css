@@ -136,6 +136,11 @@ svg.brandeis text {
 	fill: #0C3C60;
 }
 
+svg.cbs {
+	color: #000;
+	height: 3.5rem;
+}
+
 @media (prefers-color-scheme: dark) {
 
 	.sponsors-badge.diamond,
@@ -153,5 +158,9 @@ svg.brandeis text {
 
 	svg.brandeis text {
 		fill: #fff;
+	}
+
+	svg.cbs {
+		color: #fff;
 	}
 }
