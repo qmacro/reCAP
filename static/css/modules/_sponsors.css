@@ -146,6 +146,10 @@ svg.uniorg {
 	max-width: 85%;
 }
 
+svg.revtrac {
+	max-width: 85%;
+}
+
 @media (prefers-color-scheme: dark) {
 
 	.sponsors-badge.diamond,
