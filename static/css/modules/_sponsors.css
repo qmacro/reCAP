@@ -150,6 +150,10 @@ svg.revtrac {
 	max-width: 85%;
 }
 
+svg.blackwyse {
+	color: #05102D;
+}
+
 @media (prefers-color-scheme: dark) {
 
 	.sponsors-badge.diamond,
@@ -174,6 +178,10 @@ svg.revtrac {
 	}
 
 	svg.uniorg {
+		color: #fff;
+	}
+
+	svg.blackwyse {
 		color: #fff;
 	}
 }
