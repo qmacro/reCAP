@@ -154,6 +154,10 @@ svg.blackwyse {
 	color: #05102D;
 }
 
+svg.nagarro {
+	color: #06041f;
+}
+
 @media (prefers-color-scheme: dark) {
 
 	.sponsors-badge.diamond,
@@ -182,6 +186,10 @@ svg.blackwyse {
 	}
 
 	svg.blackwyse {
+		color: #fff;
+	}
+
+	svg.nagarro {
 		color: #fff;
 	}
 }
