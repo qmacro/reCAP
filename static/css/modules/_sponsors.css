@@ -158,6 +158,11 @@ svg.nagarro {
 	color: #06041f;
 }
 
+svg.fiftyhertz {
+	max-width: 90%;
+	color: #3c4c52;
+}
+
 @media (prefers-color-scheme: dark) {
 
 	.sponsors-badge.diamond,
@@ -190,6 +195,10 @@ svg.nagarro {
 	}
 
 	svg.nagarro {
+		color: #fff;
+	}
+
+	svg.fiftyhertz {
 		color: #fff;
 	}
 }
