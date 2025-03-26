@@ -163,6 +163,11 @@ svg.fiftyhertz {
 	color: #3c4c52;
 }
 
+svg.sovanta {
+	color: #686868;
+	max-width: 85%;
+}
+
 @media (prefers-color-scheme: dark) {
 
 	.sponsors-badge.diamond,
@@ -199,6 +204,10 @@ svg.fiftyhertz {
 	}
 
 	svg.fiftyhertz {
+		color: #fff;
+	}
+
+	svg.sovanta {
 		color: #fff;
 	}
 }
