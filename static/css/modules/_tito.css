@@ -1,4 +1,3 @@
-
 .tickets .ticket-link {
 	margin-block-start: 1rem;
 	margin-block-end: 0;
@@ -6,20 +5,23 @@
 
 .tickets .tito-widget {
 	margin: 0;
-	font-family: "72", Arial, Helvetica, sans-serif;
+	font-family: "Inter", Arial, Helvetica, sans-serif;
 	color: var(--text-color);
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 .tickets .tito-widget-form {
 	border-color: var(--brand-color-alt);
 	border-width: 0;
-	background: transparent;
-	padding-inline: 0;
+	background: var(--background-color-alternate);
+	padding-inline: 2rem;
+	padding-block-end: .5rem;
+	max-width: 100%;
 }
 
 .tickets .tito-widget .tito-widget-form .tito-release {
-	border-color: transparent;
+	border-color: var(--background-color);
+	border-width: 4px;
 	padding-block-start: 1rem;
 	padding-block-end: 1rem;
 }
@@ -27,12 +29,13 @@
 .tickets .tito-widget .tito-widget-form .tito-release .tito-release--title {
 	font-weight: 700;
 	font-size: 1.5rem;
-	color: var(--brand-color-alt);
+	color: var(--text-color);
 }
 
 .tickets .tito-widget .tito-widget-form .tito-release .tito-release-description .tito-release-description--description p {
 	color: var(--text-color);
 	font-size: 1rem;
+	max-width: 100%;
 }
 
 .tickets .tito-price {
@@ -41,9 +44,8 @@
 
 .tickets .tito-widget .tito-widget-form .tito-release .tito-release--status {
 	background: transparent;
-	border-color: #fff;
 	color: var(--text-color);
-	font-size: 1.5rem;
+	font-size: 1rem;
 	text-transform: none;
 	line-height: 2;
 	letter-spacing: normal;
