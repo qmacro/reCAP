@@ -1,27 +1,38 @@
 'use strict';
-Vue.component("nav-section", {
+Vue.component("nav-section-mobile", {
   data: function () {
     return {
       currentPage: "",
+      hamburgerMenuVisible: false,
     };
   },
   methods: {
     isActive: function (name) {
       return this.currentPage.includes(name);
     },
+    toggleHamburgerMenu() {
+      this.hamburgerMenuVisible = !this.hamburgerMenuVisible;
+    },
   },
   mounted() {
     this.currentPage = window.location.href;
   },
-  template: `<ul>
-        <li>
-            <a href="index.html" class="" :aria-current="isActive('index')" aria-label="Home">
-                <span class="sr-only">Link to Home Page</span>
+  template: `<div class="mobile-nav">
+    <div class="mobile-nav-container">
+        <a href="index.html" aria-label="Home">
+            <span class="sr-only">Link to Home Page</span>
 
-                <img class="logo" src="./images/recap_logo.svg" alt="logo of recap conference" class="logo">
+            <img class="logo" src="./images/recap_logo.svg" alt="logo of recap conference">
+        </a>
 
-            </a>
-        </li>
+        <button class="mobile-nav-btn" @click="toggleHamburgerMenu()" v-bind:class="{ open: hamburgerMenuVisible }">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <ul class="mobile-nav-menu" v-if="hamburgerMenuVisible">
         <li>
             <a href="program.html" :class="{ active: isActive('program') }" :aria-current="isActive('program')">Agenda</a>
         </li>
@@ -43,5 +54,7 @@ Vue.component("nav-section", {
         <!--<li>
             <a href="archive.html" :class="{ active: isActive('archive') }" :aria-current="isActive('archive')">Archive</a>
         </li>-->
-    </ul>`,
+    </ul>
+  </div>
+  `,
 });
