@@ -37,7 +37,8 @@
 
 <body>
 	<nav class="nav" aria-label="Main navigation" id="nav">
-		<nav-section></nav-section>
+		<nav-section v-if="!showMobileNav"></nav-section>
+		<nav-section-mobile v-else></nav-section-mobile>
 	</nav>
 
 	<main>
@@ -114,6 +115,7 @@
 	</footer>
 
 	<script src="./components/nav-section.component.js"></script>
+	<script src="./components/nav-section-mobile.component.js"></script>
 	<script src="./components/footer-section.component.js"></script>
 	<script src="./js/main.js"></script>
 </body>
