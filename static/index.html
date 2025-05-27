@@ -37,7 +37,8 @@
 
 <body>
 	<nav class="nav" aria-label="Main navigation" id="nav">
-		<nav-section></nav-section>
+		<nav-section v-if="!showMobileNav"></nav-section>
+		<nav-section-mobile v-else></nav-section-mobile>
 	</nav>
 
 	<header class="head lines" id="header">
@@ -149,8 +150,8 @@
 					<span>Latest News</span>
 				</h2>
 
-				<h3>Agenda Out Now</h3>
-				<p>The Agenda is now available! More content, including Expert Corner sessions, will be added soon. Stay tuned for the latest updates.</p>
+				<!-- <h3>Agenda Out Now</h3>
+				<p>The Agenda is now available! More content, including Expert Corner sessions, will be added soon. Stay tuned for the latest updates.</p> -->
 
 				<h3>CAP Code Jam</h3>
 				<p>The CAP Code Jam on July 7th will start at 09.30 AM at ROT 15, SAP-Allee, 68789 Sankt Leon-Rot, Germany.</p>
@@ -479,6 +480,7 @@
 	</footer>
 
 	<script src="./components/nav-section.component.js"></script>
+	<script src="./components/nav-section-mobile.component.js"></script>
 	<script src="./components/footer-section.component.js"></script>
 	<script src="./js/main.js"></script>
 </body>

@@ -438,8 +438,8 @@ var main = new Vue({
           end = "0" + end;
         }
 
-        let newStartTime = "2025-07-08T" + start + ":00.000+02:00";
-        let newEndTime = "2025-07-08T" + end + ":00.000+02:00";
+        let newStartTime = "2025-07-09T" + start + ":00.000+02:00";
+        let newEndTime = "2025-07-09T" + end + ":00.000+02:00";
 
         let timeNow = new Date().toISOString();
         let sessionTimeStart = new Date(newStartTime).toISOString();
@@ -550,16 +550,16 @@ var main = new Vue({
 
       if (value) {
         if (value.toLowerCase().includes("audimax")) {
-          return "Audimax";
+          return "Yellow";
         } else if (
           value.toLowerCase().includes("w1") ||
           value.toLowerCase().includes("w2")
         ) {
-          return "Room WS1&2";
+          return "Blue";
         } else if (value.toLowerCase().includes("w3")) {
-          return "Room WS3";
+          return "Orange";
         } else if (value.toLowerCase().includes("expert")) {
-          return "EXP";
+          return "Experts Corner";
         } else if (value.toLowerCase().includes("canteen")) {
           return "Canteen";
         } else {
@@ -572,16 +572,16 @@ var main = new Vue({
     formatLocation: function (value) {
       if (value) {
         if (value.toLowerCase().includes("audimax")) {
-          return "A";
+          return "Y";
         } else if (
           value.toLowerCase().includes("w1") ||
           value.toLowerCase().includes("w2")
         ) {
-          return "WS1/2";
+          return "B";
         } else if (value.toLowerCase().includes("w3")) {
-          return "WS3";
+          return "O";
         } else if (value.toLowerCase().includes("expert")) {
-          return "Expert Corner";
+          return "EXP";
         } else if (value.toLowerCase().includes("canteen")) {
           return "CA";
         } else {
