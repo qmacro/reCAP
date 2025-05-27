@@ -143,8 +143,7 @@
 		
 								<p class="agenda-slot-speakers" v-if="event.speakers.length > 0">
 									<template v-for="(speaker, index) in event.speakers" :key="`${speaker.firstName} ${speaker.firstName}`">
-										<span> {{speaker.firstName}} {{speaker.lastName}} (<span v-html="speaker.company"></span>)</span>
-										<span v-if="index != event.speakers.length - 1">, </span>
+										<span> {{speaker.firstName}} {{speaker.lastName}} (<span v-html="speaker.company"></span>)</span><span v-if="index != event.speakers.length - 1">, </span>
 									</template>
 								</p>
 		
