@@ -23,7 +23,7 @@
 	padding-block: 2rem 2rem;
 	background: var(--background-color);
 	position: sticky;
-	top: 2rem;
+	top: 5rem;
 	left: 0;
 	z-index: 1;
 }
