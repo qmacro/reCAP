@@ -37,7 +37,8 @@
 
 <body>
 	<nav class="nav" aria-label="Main navigation" id="nav">
-		<nav-section></nav-section>
+		<nav-section v-if="!showMobileNav"></nav-section>
+		<nav-section-mobile v-else></nav-section-mobile>
 	</nav>
 
 	<header class="head lines" id="header">
@@ -141,7 +142,6 @@
 	</header>
 
 	<main id="main">
-		<!-- LATEST NEWS SECTION -->
 		<section class="alternate">
 			<div class="wrap">
 
@@ -150,8 +150,11 @@
 					<span>Latest News</span>
 				</h2>
 
-				<h3>Agenda soon</h3>
-				<p>Our Agenda will be launched soon &mdash; stay tuned!</p>
+				<!-- <h3>Agenda Out Now</h3>
+				<p>The Agenda is now available! More content, including Expert Corner sessions, will be added soon. Stay tuned for the latest updates.</p> -->
+
+				<h3>CAP Code Jam</h3>
+				<p>The CAP Code Jam on July 7th will start at 09.30 AM at ROT 15, SAP-Allee, 68789 Sankt Leon-Rot, Germany.</p>
 
 				<h3>Become a sponsor</h3>
 				<p>Get more information <a href="https://cap.cloud.sap/resources/events/reCAP_2025_Sponsor_Packages.pdf" target="_blank" download="2025-Sponsor-Packages.pdf">here</a>.</p>
@@ -161,16 +164,16 @@
 
 		<section>
 			<div class="wrap">
-
+		
 				<h2 class="section-heading">
 					<span aria-hidden="true">&#8600;</span>
 					<span>Tickets</span>
 				</h2>
-
+		
 				<div class="tickets">
 					<tito-widget event="code-connect/2025" releases="hfkchk2yauo,aipj7zxcqs8"></tito-widget>
 				</div>
-
+		
 			</div>
 		</section>
 
@@ -182,7 +185,7 @@
 					<span>Become a Sponsor</span>
 				</h2>
 
-				<p>Would you like to support one of the best developer conferences out there and become sponsor of re>≡CAP 2025? It’s a
+				<p>Would you like to support one of the best developer conferences out there and become sponsor of re>≡CAP 2025? It's a
 				great move to strengthen your presence in the SAP and CAP ecosystem, build relationships, and drive your growth by
 				directly engaging with a highly specialized audience. Most importantly: The gods will thank you and push your karma
 				account to new heights…</p>
@@ -218,8 +221,6 @@
 
 					</li>
 				</ul>
-
-
 			</div>
 		</section>
 
@@ -479,8 +480,8 @@
 	</footer>
 
 	<script src="./components/nav-section.component.js"></script>
+	<script src="./components/nav-section-mobile.component.js"></script>
 	<script src="./components/footer-section.component.js"></script>
-
 	<script src="./js/main.js"></script>
 </body>
 </html>
