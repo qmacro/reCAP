@@ -64,13 +64,13 @@
 								<div class="agenda-filter__element"><input type="radio" @change="onFilterChange($event)"
 										   id="audimax" name="filter"
 										   value="audimax" data-enpassusermodified="yes"> <label for="audimax"
-										   class="agenda-filter__label">Yellow</label></div>
+										   class="agenda-filter__label">Yellow Room</label></div>
 								<div class="agenda-filter__element"><input type="radio" @change="onFilterChange($event)" id="w1"
 										   name="filter" value="w1"
-										   data-enpassusermodified="yes"> <label for="w1" class="agenda-filter__label">Blue</label></div>
+										   data-enpassusermodified="yes"> <label for="w1" class="agenda-filter__label">Blue Room</label></div>
 								<div class="agenda-filter__element"><input type="radio" @change="onFilterChange($event)" id="w3"
 										   name="filter" value="w3"
-										   data-enpassusermodified="yes"> <label for="w3" class="agenda-filter__label">Orange</label></div>
+										   data-enpassusermodified="yes"> <label for="w3" class="agenda-filter__label">Orange Room</label></div>
 							</fieldset>
 							<fieldset class="agenda-filter">
 								<legend class="sr-only">
@@ -127,19 +127,26 @@
 											{{ event.location | formatLocation }}
 										</span>
 		
-										<span 
+										<!-- <span 
 											class="agenda-level" v-if="event.proficiencyLevel"
 											:class="{ beginner: event.proficiencyLevel === 'beginner', intermediate: event.proficiencyLevel === 'intermediate', advanced: event.proficiencyLevel === 'advanced' }"
 											:title="formatProficiencyLevel(event.proficiencyLevel)"
 										>
 											{{ event.proficiencyLevel | formatLevel}}
-										</span>
+										</span> -->
 									</p>
 								</div>
 							</div>
 		
 							<div class="agenda-slot-container">
-								<h2 class="agenda-slot-title">{{ event.title | decodeHtml}}</h2>
+								<h2 class="agenda-slot-title">
+									{{ event.title | decodeHtml}}
+									<span
+										  class="agenda-level" v-if="event.proficiencyLevel"
+										  :class="{ beginner: event.proficiencyLevel === 'beginner', intermediate: event.proficiencyLevel === 'intermediate', advanced: event.proficiencyLevel === 'advanced' }">
+										{{ event.proficiencyLevel }}
+									</span>
+								</h2>
 		
 								<p class="agenda-slot-speakers" v-if="event.speakers.length > 0">
 									<template v-for="(speaker, index) in event.speakers" :key="`${speaker.firstName} ${speaker.firstName}`">

@@ -42,7 +42,7 @@ var header = new Vue({
     };
   },
   mounted() {
-    console.log(this.createCalendars());
+    // console.log(this.createCalendars());
   },
   methods: {
     toggleCalendars() {
