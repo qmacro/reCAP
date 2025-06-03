@@ -49,7 +49,7 @@
 						<span aria-hidden="true">&#8594;</span>
 						<span>Agenda</span>
 					</h2>
-		
+
 					<div class="agenda-sort">
 						<div class="agenda-filter-container">
 							<fieldset class="agenda-filter">
@@ -102,7 +102,7 @@
 							</fieldset>
 						</div>
 					</div>
-		
+
 					<ol class="agenda">
 						<li
 							class="agenda-slot"
@@ -118,16 +118,16 @@
 										<span class="agenda-time">
 											{{event.startTime | trimTime}} {{event.endTime | trimTime}}
 										</span>
-		
-										<span 
+
+										<span
 											class="agenda-room"
-											:class="{w1: event.location.toLowerCase().includes('w1') || event.location.toLowerCase().includes('w2'), w3: event.location.toLowerCase().includes('w3')}"
+											:class="{w1: event.location.toLowerCase().includes('w1') || event.location.toLowerCase().includes('w2'), w3: event.location.toLowerCase().includes('w3'), canteen: event.location.toLowerCase().includes('canteen')}"
 											:title="formatLocationTitle(event.location)"
 										>
 											{{ event.location | formatLocation }}
 										</span>
-		
-										<!-- <span 
+
+										<!-- <span
 											class="agenda-level" v-if="event.proficiencyLevel"
 											:class="{ beginner: event.proficiencyLevel === 'beginner', intermediate: event.proficiencyLevel === 'intermediate', advanced: event.proficiencyLevel === 'advanced' }"
 											:title="formatProficiencyLevel(event.proficiencyLevel)"
@@ -137,7 +137,7 @@
 									</p>
 								</div>
 							</div>
-		
+
 							<div class="agenda-slot-container">
 								<h2 class="agenda-slot-title">
 									{{ event.title | decodeHtml}}
@@ -147,25 +147,25 @@
 										{{ event.proficiencyLevel }}
 									</span>
 								</h2>
-		
+
 								<p class="agenda-slot-speakers" v-if="event.speakers.length > 0">
 									<template v-for="(speaker, index) in event.speakers" :key="`${speaker.firstName} ${speaker.firstName}`">
 										<span> {{speaker.firstName}} {{speaker.lastName}} (<span v-html="speaker.company"></span>)</span><span v-if="index != event.speakers.length - 1">, </span>
 									</template>
 								</p>
-		
+
 								<div class="agenda-slot-inner-container">
 									<div class="agenda-slot-speakers-images" v-if="event.speakers.length > 0">
 										<template v-for="speaker in event.speakers" :key="`${speaker.firstName} ${speaker.firstName}`">
-											<button 
+											<button
 												v-if="speaker.hasPhoto"
 												:id="`btn-${speaker.firstName}-${speaker.lastName}-${event.id}`"
 												@click="openSpeakerInfoModal(event.speakers, `btn-${speaker.firstName}-${speaker.lastName}-${event.id}`)">
-												<img 
+												<img
 													:src="`https://recap.cfapps.eu12.hana.ondemand.com${speaker.photoUrl}`"
 													:alt="`Portrait of ${speaker.firstName} ${speaker.lastName}`" />
 											</button>
-											<button 
+											<button
 												v-else
 												:id="`btn-${speaker.firstName}-${speaker.lastName}-${event.id}`"
 												@click="openSpeakerInfoModal(event.speakers, `btn-${speaker.firstName}-${speaker.lastName}-${event.id}`)">
@@ -173,19 +173,19 @@
 											</button>
 										</template>
 									</div>
-		
+
 									<div class="agenda-slot-speakers-images lunch" v-if="event.type === 'z_catering'">
 										<img src="./images/lunch.svg" alt="Illustration of a meal" />
 									</div>
-		
+
 									<div class="agenda-slot-speakers-images panel" v-if="event.type === 'panel'">
 										<img src="./images/cheers.svg"
 											 alt="Illustration of two people having a cup of coffee sitting at a table" />
 									</div>
-		
+
 									<p class="agenda-slot-description">{{event.description | decodeHtml}}</p>
 								</div>
-		
+
 								<template v-if="event.presentationLinks.length > 0">
 									<template v-if="!(event.presentationLinks.length == 1 && event.presentationLinks[0].linkType.toLowerCase() == 'feedback')">
 										<ul class="agenda-slot-links">
@@ -195,7 +195,7 @@
 													   hreflang="en" rel="noopener noreferrer">{{link.linkType}}</a>
 												</li>
 											</template>
-		
+
 											<li class="livestream" v-if="event.isLive">
 												<a href="#" class="agenda-slot-linkitem">Livestream</a>
 											</li>
@@ -205,8 +205,8 @@
 							</div>
 						</li>
 					</ol>
-				</div>		
-		
+				</div>
+
 				<div id="speaker-modal" ref="speakerModal" aria-hidden="true" tabindex="-1" aria-modal="true"
 					 class="agenda-modal-backdrop" style="display: none" @keydown.esc="closeSpeakerInfoModal"
 					 @click.self="closeSpeakerInfoModal" v-cloak>
@@ -219,7 +219,7 @@
 								{{speaker.firstName}} {{speaker.lastName}}
 							</template>
 						</h2>
-		
+
 						<p class="sr-only" id="speaker-dialog-description">
 							<template v-for="speaker in activeSpeakers"
 									  :key="`${speaker.firstName} ${speaker.firstName}`">
@@ -228,12 +228,12 @@
 								Speaker's bio: {{speaker.bio}}
 							</template>
 						</p>
-		
+
 						<button aria-label="Close Dialog" @click="closeSpeakerInfoModal" ref="close"
 								v-on:keydown.tab.prevent="focusTrapModal($event)">
 							✕
 						</button>
-		
+
 						<div v-for="(speaker, index) in activeSpeakers" class="agenda-modal-content-container"
 							 :key="index">
 							<figure>
@@ -241,7 +241,7 @@
 									 v-if="speaker.hasPhoto"
 									 :src="`https://recap.cfapps.eu12.hana.ondemand.com${speaker.photoUrl}`"
 									 :alt="`Portrait of ${speaker.firstName} ${speaker.lastName}`" />
-		
+
 								<div
 									 v-else
 									 class="placeholder"></div>
@@ -316,6 +316,44 @@
 					</div>
 				</div>
 			</div>
+		</section>
+
+		<section class="alternate">
+			<div class="wrap">
+				<div class="box">
+					<h2 class="section-heading">
+						<span aria-hidden="true">&#8600;</span>
+						<span>Expert Corner Sessions</span>
+					</h2>
+					<ol class="agenda">
+						<li v-for="(slot, index) in this.expertCornerLineup" :key="index" v-cloak class="agenda-slot">
+							<div class="agenda-slot-header">
+								<div>
+									<p class="agenda-slot-details">
+										<span class="agenda-time">
+											{{slot[0].startTime| trimTime}} {{slot[0].endTime | trimTime}}
+										</span>
+
+										<span class="agenda-room experts">
+											{{slot[0].location | formatLocation}}
+										</span>
+									</p>
+								</div>
+							</div>
+							<div class="agenda-slot-container">
+								<ul class="agenda-slot-experts">
+									<li v-for="event in slot" :key="event.id">
+										<p>{{event.title | trimExpertText}}</p>
+									</li>
+								</ul>
+
+							</div>
+
+						</li>
+					</ol>
+				</div>
+			</div>
+
 		</section>
 	</main>
 
