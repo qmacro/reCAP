@@ -427,6 +427,10 @@ var main = new Vue({
         let start = session.startTime;
         let end = session.endTime;
 
+        if (session.location === "canteen" &&  session.title.toLowerCase().includes('breakfast')) {
+          start = "08:00";
+        }
+
         let tempStart = start.substring(0, start.indexOf(":"));
         let tempEnd = end.substring(0, end.indexOf(":"));
 
@@ -471,8 +475,7 @@ var main = new Vue({
 
       const sortedSchedule = sortedScheduleTemp.filter(
         (schedule) =>
-          !schedule.type.includes("expert") &&
-          !schedule.location.includes("expert")
+          !schedule.type.includes("expert")
       );
 
       if (this.filter === "all") {

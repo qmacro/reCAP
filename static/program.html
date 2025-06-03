@@ -121,7 +121,12 @@
 
 										<span
 											class="agenda-room"
-											:class="{w1: event.location.toLowerCase().includes('w1') || event.location.toLowerCase().includes('w2'), w3: event.location.toLowerCase().includes('w3'), canteen: event.location.toLowerCase().includes('canteen')}"
+											:class="{
+												w1: event.location.toLowerCase().includes('w1') || event.location.toLowerCase().includes('w2'), 
+												w3: event.location.toLowerCase().includes('w3'), 
+												canteen: event.location.toLowerCase().includes('canteen'),
+												experts: event.location.toLowerCase().includes('expert')
+											}"
 											:title="formatLocationTitle(event.location)"
 										>
 											{{ event.location | formatLocation }}
