@@ -464,12 +464,15 @@ var main = new Vue({
           luxon.DateTime.fromISO(b.startTime)
       );
 
-      this.expertCornerLineupUnsorted = sortedScheduleTemp.filter((schedule) =>
-        schedule.type.includes("expert")
+      this.expertCornerLineupUnsorted = sortedScheduleTemp.filter(
+        (schedule) =>
+          schedule.location.includes("expert")
       );
 
       const sortedSchedule = sortedScheduleTemp.filter(
-        (schedule) => !schedule.type.includes("expert")
+        (schedule) =>
+          !schedule.type.includes("expert") &&
+          !schedule.location.includes("expert")
       );
 
       if (this.filter === "all") {
@@ -534,11 +537,12 @@ var main = new Vue({
     },
     groupExpertCornerTopics() {
       this.expertCornerLineupUnsorted.forEach((corner) => {
-        const timeSlot = corner.startTime;
-        if (!this.expertCornerLineup[timeSlot]) {
-          this.expertCornerLineup[timeSlot] = [];
+        
+        const key = `${corner.startTime}|${corner.endTime}`;
+        if (!this.expertCornerLineup[key]) {
+          this.expertCornerLineup[key] = [];
         }
-        this.expertCornerLineup[timeSlot].push(corner);
+        this.expertCornerLineup[key].push(corner);
       });
     },
     formatProficiencyLevel(value) {
