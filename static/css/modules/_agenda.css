@@ -315,10 +315,6 @@
 	}
 }
 
-.agenda-slot-container {
-	flex-basis: auto;
-}
-
 .agenda-time {
 	display: flex;
 	justify-content: center;
@@ -550,7 +546,7 @@
 	cursor: pointer;
 }
 
-.agenda-slot-linkitem[href*="github"]::before {
+.agenda-slot-linkitem:not(.is-calendar)[href*="github"]::before {
 	content: "";
 	background: currentColor;
 	mask: url(../../images/icons/github.svg);
@@ -574,6 +570,32 @@
 	margin-inline: 0 .3rem;
 }
 
+.agenda-slot-linkitem[href*="broadcast"]::before {
+	content: "";
+	background: red;
+	mask: url(../../images/icons/broadcast.svg);
+	display: inline-block;
+	height: 1.8rem;
+	width: 1.8rem;
+	vertical-align: middle;
+	line-height: 1;
+	margin-inline: 0 .3rem;
+	transform: scale(0.85);
+}
+
+.agenda-slot-linkitem[href*="teams"]::before {
+	content: "";
+	background: #4a53b8;
+	mask: url(../../images/icons/msteams.svg);
+	display: inline-block;
+	height: 1.8rem;
+	width: 1.8rem;
+	vertical-align: middle;
+	line-height: 1;
+	margin-inline: 0 .3rem;
+	transform: scale(0.85);
+}
+
 .agenda-slot-linkitem[href*="slideshare"]::before,
 .agenda-slot-linkitem[href*=".pdf"]::before {
 	content: "";
@@ -585,6 +607,12 @@
 	vertical-align: middle;
 	line-height: 1;
 	margin-inline: 0 .3rem;
+}
+
+.agenda-slot-linkitem.is-calendar {
+	gap: 0.25rem;
+	display: inline-flex;
+	align-items: center;
 }
 
 .livestream .agenda-slot-linkitem::before {
@@ -635,4 +663,19 @@
 	line-height: 1.75rem;
 	font-size: var(--type-1);
 	color: var(--brand-color);
+}
+
+.agenda-links {
+	gap: 0.75rem;
+	flex-wrap: wrap;
+	display: inline-flex;
+}
+
+.calendar-list {
+	gap: 0.75rem;
+	margin: 0;
+	padding: 0;
+	line-height: 1.7;
+	display: inline-flex;
+	list-style-type: none;
 }

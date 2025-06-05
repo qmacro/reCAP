@@ -427,7 +427,10 @@ var main = new Vue({
         let start = session.startTime;
         let end = session.endTime;
 
-        if (session.location === "canteen" &&  session.title.toLowerCase().includes('breakfast')) {
+        if (
+          session.location === "canteen" &&
+          session.title.toLowerCase().includes("breakfast")
+        ) {
           start = "08:00";
         }
 
@@ -445,6 +448,76 @@ var main = new Vue({
         let newStartTime = "2025-07-09T" + start + ":00.000+02:00";
         let newEndTime = "2025-07-09T" + end + ":00.000+02:00";
 
+        let calendarStartDate = new Date(newStartTime)
+          .toISOString()
+          .replace(/-|:|\.\d+/g, "");
+        let calendarEndDate = new Date(newEndTime)
+          .toISOString()
+          .replace(/-|:|\.\d+/g, "");
+
+        let officeStartDate = new Date(newStartTime).toISOString();
+        let officeEndDate = new Date(newEndTime).toISOString();
+
+        const forbiddenCharacters = new RegExp("#", "g");
+        const removeForbiddenCharachters = (text) => {
+          if (typeof text === "string") {
+            let formattedText = text.replace(/(&amp;|&)/g, " and ");
+            return formattedText.replace(forbiddenCharacters, "");
+          }
+          return "";
+        };
+
+        const removeForbiddenCharachtersOutlook = (text) => {
+          if (typeof text === "string") {
+            let formattedText = text.replace(/(?:\r\n|\r|\n)/g, "\\n");
+            formattedText = formattedText.replace(/<br>/g, "\\n");
+            formattedText = formattedText.replace(/(&amp;|&)/g, " and ");
+            return formattedText.replace(forbiddenCharacters, "");
+          }
+          return "";
+        };
+        const sessionLocation = (location) => {
+          if (location.toLowerCase().includes("audimax")) {
+            return "Yellow Room";
+          } else if (
+            location.toLowerCase().includes("w1") ||
+            location.toLowerCase().includes("w2")
+          ) {
+            return "Blue Room";
+          } else if (location.toLowerCase().includes("w3")) {
+            return "Orange Room";
+          } else {
+            return location;
+          }
+        };
+
+        let cal = [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "BEGIN:VEVENT",
+          "DTSTART:" + calendarStartDate,
+          "DTEND:" + calendarEndDate,
+          "SUMMARY:" +
+            "reCAP: " +
+            removeForbiddenCharachtersOutlook(session.title),
+          "LOCATION:" + sessionLocation(session.location),
+          "DESCRIPTION:" +
+            removeForbiddenCharachtersOutlook(session.description),
+          "UID:" + session.id,
+          "END:VEVENT",
+          "END:VCALENDAR",
+        ].join("\n");
+
+        let calDescription = "";
+
+        if (session.description) {
+          let formattedDescription = session.description.replace(/&amp;/g, "&");
+          calDescription = formattedDescription.replace(
+            /(?:\r\n|\r|\n)/g,
+            "<br>"
+          );
+        }
+
         let timeNow = new Date().toISOString();
         let sessionTimeStart = new Date(newStartTime).toISOString();
         let sessionTimeEnd = new Date(newEndTime).toISOString();
@@ -459,6 +532,39 @@ var main = new Vue({
           startTime: newStartTime,
           endTime: newEndTime,
           isLive: sessionLiveStatus,
+          calendars: [
+            {
+              google: encodeURI(
+                [
+                  "https://www.google.com/calendar/render",
+                  "?action=TEMPLATE",
+                  "&text=" +
+                    "reCAP: " +
+                    removeForbiddenCharachters(session.title),
+                  "&dates=" + calendarStartDate,
+                  "/" + calendarEndDate,
+                  "&location=" + sessionLocation(session.location),
+                  "&details=" + removeForbiddenCharachters(calDescription),
+                  "&sprop=&sprop=name:",
+                ].join("")
+              ),
+              office365: encodeURI(
+                [
+                  "https://outlook.office365.com/owa/",
+                  "?path=/calendar/action/compose",
+                  "&rru=addevent",
+                  "&subject=" +
+                    "reCAP: " +
+                    removeForbiddenCharachters(session.title),
+                  "&startdt=" + officeStartDate,
+                  "&enddt=" + officeEndDate,
+                  "&location=" + sessionLocation(session.location),
+                  "&body=" + removeForbiddenCharachters(calDescription),
+                ].join("")
+              ),
+              ics: encodeURI("data:text/calendar;charset=utf8," + cal),
+            },
+          ],
         };
       });
 
@@ -468,14 +574,12 @@ var main = new Vue({
           luxon.DateTime.fromISO(b.startTime)
       );
 
-      this.expertCornerLineupUnsorted = sortedScheduleTemp.filter(
-        (schedule) =>
-          schedule.location.includes("expert")
+      this.expertCornerLineupUnsorted = sortedScheduleTemp.filter((schedule) =>
+        schedule.location.includes("expert")
       );
 
       const sortedSchedule = sortedScheduleTemp.filter(
-        (schedule) =>
-          !schedule.type.includes("expert")
+        (schedule) => !schedule.type.includes("expert")
       );
 
       if (this.filter === "all") {
@@ -540,7 +644,6 @@ var main = new Vue({
     },
     groupExpertCornerTopics() {
       this.expertCornerLineupUnsorted.forEach((corner) => {
-        
         const key = `${corner.startTime}|${corner.endTime}`;
         if (!this.expertCornerLineup[key]) {
           this.expertCornerLineup[key] = [];
@@ -567,12 +670,43 @@ var main = new Vue({
           return "Orange";
         } else if (value.toLowerCase().includes("expert")) {
           return "Experts Corner";
-        } else if (value.toLowerCase().includes("canteen")) {
+        } else if (
+          value.toLowerCase().includes("canteen") ||
+          value.toLowerCase().includes("catering")
+        ) {
           return "Canteen";
         } else {
           return value;
         }
       }
+    },
+    showSessionCalendars(session) {
+      if (
+        (session.location.toLowerCase().includes("audimax") ||
+          session.location.toLowerCase().includes("w1") ||
+          session.location.toLowerCase().includes("w2") ||
+          session.location.toLowerCase().includes("w3")) &&
+        !(
+          session.title.toLowerCase().includes("welcome") ||
+          session.title.toLowerCase().includes("closing")
+        )
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    decodeBioHtml(value) {
+      if (!value) return "";
+      
+      const txt = document.createElement("textarea");
+      txt.innerHTML = value;
+      
+      let decoded = txt.value;
+      decoded = decoded.replace(/&amp;|&/g, " and ");
+      decoded = decoded.replace(/\\n|\/n|\n/g, "<br>");
+      
+      return decoded;
     },
   },
   filters: {
@@ -589,7 +723,10 @@ var main = new Vue({
           return "O";
         } else if (value.toLowerCase().includes("expert")) {
           return "EXP";
-        } else if (value.toLowerCase().includes("canteen")) {
+        } else if (
+          value.toLowerCase().includes("canteen") ||
+          value.toLowerCase().includes("catering")
+        ) {
           return "CA";
         } else {
           return value;

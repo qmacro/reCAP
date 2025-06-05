@@ -191,6 +191,20 @@
 									<p class="agenda-slot-description">{{event.description | decodeHtml}}</p>
 								</div>
 
+								<div class="agenda-links">
+									<a v-if="event.location.toLowerCase().includes('audimax')" href="https://broadcast.co.sap.com/go/reCAP" class="agenda-slot-linkitem" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
+
+									<a v-if="event.location.toLowerCase().includes('w1') || event.location.toLowerCase().includes('w2')" href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjljYWQzNTEtNzkwNC00NDQ2LWE5MDAtYmEzODA3ZGNmZjIw%40thread.v2/0?context=%7b%22Tid%22%3a%2242f7676c-f455-423c-82f6-dc2d99791af7%22%2c%22Oid%22%3a%223d4d6882-45a1-41ce-9418-35a35744348f%22%7d"
+									   class="agenda-slot-linkitem" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
+
+
+									<ul class="calendar-list is-calendar" v-if="showSessionCalendars(event)">
+										<calendar-link :type="'google'" :link="event.calendars[0].google" :cal="true">Google</calendar-link>
+										<calendar-link :type="'office'" :link="event.calendars[0].office365" :cal="true">Office 365</calendar-link>
+										<calendar-link :type="'outlook'" :link="event.calendars[0].ics" download='reCAP2025.ics' :cal="true">Outlook</calendar-link>
+									</ul>
+								</div> 
+
 								<template v-if="event.presentationLinks.length > 0">
 									<template v-if="!(event.presentationLinks.length == 1 && event.presentationLinks[0].linkType.toLowerCase() == 'feedback')">
 										<ul class="agenda-slot-links">
@@ -200,10 +214,6 @@
 													   hreflang="en" rel="noopener noreferrer">{{link.linkType}}</a>
 												</li>
 											</template>
-
-											<li class="livestream" v-if="event.isLive">
-												<a href="#" class="agenda-slot-linkitem">Livestream</a>
-											</li>
 										</ul>
 									</template>
 								</template>
@@ -260,9 +270,7 @@
 										<p v-if="speaker.company" v-html="speaker.company"></p>
 									</div>
 								</header>
-								<p class="" v-if="speaker.bio">
-									{{speaker.bio | formatText }}
-								</p>
+								<p class="" v-if="speaker.bio" v-html="decodeBioHtml(speaker.bio)"></p>
 								<ul class="speakers-socials"
 									v-if="speaker.githubUrl || speaker.linkedInUrl || speaker.twitterHandle || speaker.mastodonHandle || speaker.blueskyHandle">
 									<li v-if="speaker.githubUrl">
@@ -366,10 +374,10 @@
 		<footer-section></footer-section>
 	</footer>
 
+	<script src="./components/calendar-link.component.js"></script>
 	<script src="./components/nav-section.component.js"></script>
 	<script src="./components/nav-section-mobile.component.js"></script>
 	<script src="./components/footer-section.component.js"></script>
-
 	<script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
 	<script src="./js/luxon.min.js"></script>
 	<script src="./js/main.js"></script>
