@@ -1288,6 +1288,30 @@ dd {
 	font-weight: 300;
 }
 
+.yellow-room, .blue-room {
+	min-width: 2rem;
+	min-height: 2rem;
+	font-weight: 600;
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+}
+
+.yellow-room {
+	color: black;
+	border-radius: 5rem;
+	background: var(--audimax);
+}
+
+.blue-room {
+    color: #fff;
+	background: var(--w1);
+}
+
+#main ul:not(.calendar-list) li + li {
+	margin-block-start: 1rem;
+}
+
 /* ---------------------------- Dark Mode -----------------------  */
 
 @media (prefers-color-scheme: dark) {
