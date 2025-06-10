@@ -1280,7 +1280,7 @@ dd {
 	font-size: var(--type-0);
 	font-weight: 500;
 	font-style: italic;
-  quotes: "“" "”" "‘" "’";
+	quotes: "“" "”" "‘" "’";
 }
 
 .quote figcaption {
@@ -1304,11 +1304,11 @@ dd {
 }
 
 .blue-room {
-    color: #fff;
+	color: #fff;
 	background: var(--w1);
 }
 
-#main ul:not(.calendar-list) li + li {
+#news ul:not(.calendar-list) li + li {
 	margin-block-start: 1rem;
 }
 
