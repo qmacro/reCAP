@@ -115,8 +115,21 @@
 							<div class="agenda-slot-header">
 								<div>
 									<p class="agenda-slot-details">
-										<span class="agenda-time">
-											{{event.startTime | trimTime}} {{event.endTime | trimTime}}
+										<span 
+											class="agenda-time" 
+											:class="{ live: 
+											(
+												event.location.toLowerCase().includes('audimax') || 
+												event.location.toLowerCase().includes('w1') || 
+												event.location.toLowerCase().includes('w2')
+											) && event.isLive}">
+
+											<template v-if="(
+												event.location.toLowerCase().includes('audimax') || 
+												event.location.toLowerCase().includes('w1') || 
+												event.location.toLowerCase().includes('w2')
+											) && event.isLive">LIVE NOW</template>
+											<template v-else>{{event.startTime | trimTime}} {{event.endTime | trimTime}}</template>
 										</span>
 
 										<span
@@ -192,10 +205,10 @@
 								</div>
 
 								<div class="agenda-links">
-									<a v-if="event.location.toLowerCase().includes('audimax')" href="https://broadcast.co.sap.com/go/reCAP" class="agenda-slot-linkitem" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
+									<a v-if="event.location.toLowerCase().includes('audimax')" href="https://broadcast.co.sap.com/go/reCAP" class="agenda-slot-linkitem" :class="{livestream: event.isLive}" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
 
 									<a v-if="event.location.toLowerCase().includes('w1') || event.location.toLowerCase().includes('w2')" href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjljYWQzNTEtNzkwNC00NDQ2LWE5MDAtYmEzODA3ZGNmZjIw%40thread.v2/0?context=%7b%22Tid%22%3a%2242f7676c-f455-423c-82f6-dc2d99791af7%22%2c%22Oid%22%3a%223d4d6882-45a1-41ce-9418-35a35744348f%22%7d"
-									   class="agenda-slot-linkitem" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
+									   class="agenda-slot-linkitem" :class="{livestream: event.isLive}" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
 
 
 									<ul class="calendar-list is-calendar" v-if="showSessionCalendars(event)">

@@ -239,6 +239,31 @@ var main = new Vue({
       );
       this.groupExpertCornerTopics();
     });
+
+    this.updateLiveSession();
+
+    let interval;
+
+    let timeNow = new Date().toISOString();
+
+    const startCounterTime = new Date(
+      "2025-07-09T00:50:00.000+02:00"
+    ).toISOString();
+
+    const endCounterTime = new Date(
+      "2025-07-09T18:10:00.000+02:00"
+    ).toISOString();
+
+    if (timeNow > startCounterTime && timeNow <= endCounterTime) {
+      interval = setInterval(() => {
+        timeNow = new Date().toISOString();
+        if (timeNow > endCounterTime) {
+          clearInterval(interval);
+          return;
+        }
+        this.updateLiveSession();
+      }, 30000);
+    }
   },
   methods: {
     openSpeakerInfoModal(speakers, id) {
@@ -698,15 +723,28 @@ var main = new Vue({
     },
     decodeBioHtml(value) {
       if (!value) return "";
-      
+
       const txt = document.createElement("textarea");
       txt.innerHTML = value;
-      
+
       let decoded = txt.value;
       decoded = decoded.replace(/&amp;|&/g, " and ");
       decoded = decoded.replace(/\\n|\/n|\n/g, "<br>");
-      
+
       return decoded;
+    },
+    updateLiveSession() {
+      return this.formattedLineup.map((session) => {
+        let timeNow = new Date().toISOString();
+        let sessionTimeStart = new Date(session.startTime).toISOString();
+        let sessionTimeEnd = new Date(session.endTime).toISOString();
+
+        if (timeNow >= sessionTimeStart && timeNow < sessionTimeEnd) {
+          session.isLive = true;
+        } else {
+          session.isLive = false;
+        }
+      });
     },
   },
   filters: {
