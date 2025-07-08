@@ -1,11 +1,13 @@
 name: build and publish reCAP website
 
+# make it manual 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "static/**"
+  workflow_dispatch:
+  # push:
+    # branches:
+      #- main
+    #paths:
+      #- "static/**"
 jobs:
   build:
     runs-on: ubuntu-latest
