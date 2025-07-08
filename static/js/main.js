@@ -739,11 +739,7 @@ var main = new Vue({
         let sessionTimeStart = new Date(session.startTime).toISOString();
         let sessionTimeEnd = new Date(session.endTime).toISOString();
 
-        if (timeNow >= sessionTimeStart && timeNow < sessionTimeEnd) {
-          session.isLive = true;
-        } else {
-          session.isLive = false;
-        }
+        session.isLive = timeNow >= sessionTimeStart && timeNow < sessionTimeEnd;
       });
     },
   },

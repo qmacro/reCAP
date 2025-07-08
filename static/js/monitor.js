@@ -7,7 +7,7 @@ function createLineupApp(mountElementId, roomFilterFn) {
       return {
         lineup: [],
         formattedLineup: [],
-      }
+      };
     },
     mounted() {
       axios
@@ -16,6 +16,31 @@ function createLineupApp(mountElementId, roomFilterFn) {
           this.lineup = response.data.filter(roomFilterFn); // Filter by room
           this.formattedLineup = this.formatLineup();
         });
+
+      this.updateLiveSession();
+      
+      let interval;
+
+      let timeNow = new Date().toISOString();
+
+      const startCounterTime = new Date(
+        "2025-07-09T00:50:00.000+02:00"
+      ).toISOString();
+
+      const endCounterTime = new Date(
+        "2025-07-09T18:10:00.000+02:00"
+      ).toISOString();
+
+      if (timeNow > startCounterTime && timeNow <= endCounterTime) {
+        interval = setInterval(() => {
+          timeNow = new Date().toISOString();
+          if (timeNow > endCounterTime) {
+            clearInterval(interval);
+            return;
+          }
+          this.updateLiveSession();
+        }, 30000);
+      }
     },
     methods: {
       formatLineup() {
@@ -40,28 +65,36 @@ function createLineupApp(mountElementId, roomFilterFn) {
           let timeNow = new Date().toISOString();
           let sessionTimeStart = new Date(newStartTime).toISOString();
           let sessionTimeEnd = new Date(newEndTime).toISOString();
-          let sessionLiveStatus = false;
-
-          if (timeNow > sessionTimeStart && timeNow < sessionTimeEnd) {
-            sessionLiveStatus = true;
-          }
-
+ 
           return {
             ...session,
             startTime: newStartTime,
             endTime: newEndTime,
-            isLive: sessionLiveStatus,
+            isLive: timeNow > sessionTimeStart && timeNow < sessionTimeEnd,
+            isPast: timeNow > sessionTimeEnd,
           };
         });
 
-        return tempLineUp.sort((a, b) =>
-          luxon.DateTime.fromISO(a.startTime) - luxon.DateTime.fromISO(b.startTime)
+        return tempLineUp.sort(
+          (a, b) =>
+            luxon.DateTime.fromISO(a.startTime) -
+            luxon.DateTime.fromISO(b.startTime)
         );
-      }
+      },
+      updateLiveSession() {
+        return this.formattedLineup.map((session) => {
+          let timeNow = new Date().toISOString();
+          let sessionTimeStart = new Date(session.startTime).toISOString();
+          let sessionTimeEnd = new Date(session.endTime).toISOString();
+
+          session.isLive = timeNow >= sessionTimeStart && timeNow < sessionTimeEnd;
+          session.isPast = timeNow > sessionTimeEnd;
+        });
+      },
     },
     filters: {
       formatLocation(value) {
-        if (!value) return '';
+        if (!value) return "";
         value = value.toLowerCase();
         if (value.includes("audimax")) return "Yellow";
         if (value.includes("w1") || value.includes("w2")) return "Blue";
@@ -71,7 +104,7 @@ function createLineupApp(mountElementId, roomFilterFn) {
         return value;
       },
       formatLevel(value) {
-        if (!value) return '';
+        if (!value) return "";
         return value.charAt(0).toUpperCase();
       },
       trimTime(value) {
@@ -81,11 +114,11 @@ function createLineupApp(mountElementId, roomFilterFn) {
         return `${hour}:${minute}`;
       },
       decodeHtml(value) {
-        if (!value) return '';
-        const txt = document.createElement('textarea');
+        if (!value) return "";
+        const txt = document.createElement("textarea");
         txt.innerHTML = value;
         return txt.value;
-      }
-    }
+      },
+    },
   });
 }
