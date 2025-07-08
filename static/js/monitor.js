@@ -20,7 +20,6 @@ function createLineupApp(mountElementId, roomFilterFn) {
       this.updateLiveSession();
       
       let interval;
-
       let timeNow = new Date().toISOString();
 
       const startCounterTime = new Date(
