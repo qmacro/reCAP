@@ -1,10 +1,5 @@
-name: Deploy call for speakers site to GitHub Pages
+name: deploy website
 
-# parked: Action must be triggered manually (for now)
-# on:
-#  workflow_dispatch:
-
-# automate it
 on:
   push:
     branches:
