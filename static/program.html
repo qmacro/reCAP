@@ -115,21 +115,8 @@
 							<div class="agenda-slot-header">
 								<div>
 									<p class="agenda-slot-details">
-										<span 
-											class="agenda-time" 
-											:class="{ live: 
-											(
-												event.location.toLowerCase().includes('audimax') || 
-												event.location.toLowerCase().includes('w1') || 
-												event.location.toLowerCase().includes('w2')
-											) && event.isLive}">
-
-											<template v-if="(
-												event.location.toLowerCase().includes('audimax') || 
-												event.location.toLowerCase().includes('w1') || 
-												event.location.toLowerCase().includes('w2')
-											) && event.isLive">LIVE NOW</template>
-											<template v-else>{{event.startTime | trimTime}} {{event.endTime | trimTime}}</template>
+										<span class="agenda-time" >
+											{{event.startTime | trimTime}} {{event.endTime | trimTime}}
 										</span>
 
 										<span
@@ -144,14 +131,6 @@
 										>
 											{{ event.location | formatLocation }}
 										</span>
-
-										<!-- <span
-											class="agenda-level" v-if="event.proficiencyLevel"
-											:class="{ beginner: event.proficiencyLevel === 'beginner', intermediate: event.proficiencyLevel === 'intermediate', advanced: event.proficiencyLevel === 'advanced' }"
-											:title="formatProficiencyLevel(event.proficiencyLevel)"
-										>
-											{{ event.proficiencyLevel | formatLevel}}
-										</span> -->
 									</p>
 								</div>
 							</div>
@@ -204,19 +183,12 @@
 									<p class="agenda-slot-description">{{event.description | decodeHtml}}</p>
 								</div>
 
-								<div class="agenda-links">
-									<a v-if="event.location.toLowerCase().includes('audimax')" href="https://broadcast.co.sap.com/go/reCAP" class="agenda-slot-linkitem" :class="{livestream: event.isLive}" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
+								<!-- <div class="agenda-links">
+									<a v-if="event.location.toLowerCase().includes('audimax')" href="https://broadcast.co.sap.com/go/reCAP" class="agenda-slot-linkitem" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
 
 									<a v-if="event.location.toLowerCase().includes('w1') || event.location.toLowerCase().includes('w2')" href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjljYWQzNTEtNzkwNC00NDQ2LWE5MDAtYmEzODA3ZGNmZjIw%40thread.v2/0?context=%7b%22Tid%22%3a%2242f7676c-f455-423c-82f6-dc2d99791af7%22%2c%22Oid%22%3a%223d4d6882-45a1-41ce-9418-35a35744348f%22%7d"
-									   class="agenda-slot-linkitem" :class="{livestream: event.isLive}" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
-
-
-									<ul class="calendar-list is-calendar" v-if="showSessionCalendars(event)">
-										<calendar-link :type="'google'" :link="event.calendars[0].google" :cal="true">Google</calendar-link>
-										<calendar-link :type="'office'" :link="event.calendars[0].office365" :cal="true">Office 365</calendar-link>
-										<calendar-link :type="'outlook'" :link="event.calendars[0].ics" download='reCAP2025.ics' :cal="true">Outlook</calendar-link>
-									</ul>
-								</div> 
+									   class="agenda-slot-linkitem" rel="noopener noreferrer" target="_blank" hreflang="en">Livestream</a>
+								</div>  -->
 
 								<template v-if="event.presentationLinks.length > 0">
 									<template v-if="!(event.presentationLinks.length == 1 && event.presentationLinks[0].linkType.toLowerCase() == 'feedback')">

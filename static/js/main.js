@@ -37,101 +37,10 @@ var nav = new Vue({
 var header = new Vue({
   el: '#header',
   data() {
-    return {
-      isCalendarsVisible: false
-    };
+    return {};
   },
-  mounted() {
-    // console.log(this.createCalendars());
-  },
-  methods: {
-    toggleCalendars() {
-      this.isCalendarsVisible = !this.isCalendarsVisible;
-    },
-    createCalendars() {
-
-      let newStartTime = "2025-07-09T00:00:00.000";
-      let newEndTime = "2025-07-10T00:00:00.000";
-
-      let calendarStartDate = new Date(newStartTime).toISOString().replace(/-|:|\.\d+/g, '');
-      let calendarEndDate = new Date(newEndTime).toISOString().replace(/-|:|\.\d+/g, '');
-
-      let officeStartDate = new Date(newStartTime).toISOString();
-      let officeEndDate = new Date(newEndTime).toISOString();
-
-      const forbiddenCharacters = new RegExp('#', 'g')
-        const removeForbiddenCharachters = (text) => {
-            if (typeof text === 'string') {
-              let formattedText = text.replace(/(&amp;|&)/g, " and ");
-              return formattedText.replace(forbiddenCharacters, '');
-            }
-            return ''
-        }
-
-        const removeForbiddenCharachtersOutlook = (text) => {
-          if (typeof text === 'string') {
-            let formattedText = text.replace(/(?:\r\n|\r|\n)/g, "\\n");
-            return formattedText.replace(forbiddenCharacters, '');
-          }
-          return ''
-      }
-
-      let description =
-        "Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more.\n\nFind more information here: https://recap-conf.dev/\n(Links to live streams and recordings will be available there)\n\nImportant Dates:\nCall for Content: until March 10, 2025\nRegistration for Onsite Attendees: Opens on April 10, 2025\nEarly Bird Ticket Application: Ends March 10, 2025\nGet in contact with us in case of further questions: recap.conf@gmail.com.\n\nYour re>≡CAP orga team";
-
-      let descriptionOffice = `Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more…
-      <br><br>Find more information here: https://recap-conf.dev/
-      <br>(Links to live streams and recordings will be available there)
-      <br><br> Important Dates: <br> Call for Content: until March 10, 2025 <br> Registration for Onsite Attendees: Opens on April 10, 2025 <br> Early Bird Ticket Application: Ends March 10, 2025 <br><br>Get in contact with us in case of further questions: recap.conf@gmail.com.<br><br> Your re>≡CAP orga team`;
-
-      let descriptionGoogle = `<br>Join the awesome developer conference all around the SAP Cloud Application Programming Model (CAP). The time of the year where our vivid communities, customers, and partners meet the CAP Product Team and exchange best practices, technical concepts, current projects, ideas for the future, and way more…
-      <br><br>Find more information here: https://recap-conf.dev/
-      <br>(Links to live streams and recordings will be available there)
-      <br><br>Important Dates:<br>Call for Content: until March 10, 2025<br>Registration for Onsite Attendees: Opens on April 10, 2025<br>Early Bird Ticket Application: Ends March 10, 2025<br><br>Get in contact with us in case of further questions: <a href="mailto:recap.conf@gmail.com">recap.conf@gmail.com</a>.<br><br>Your re>≡CAP orga team`;
-
-      let cal = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'BEGIN:VEVENT',
-        'DTSTART:' + calendarStartDate,
-        'DTEND:' + calendarEndDate,
-        'SUMMARY:' + 'Save the Date: reCAP 2025',
-        'LOCATION:' + 'SAP SE (ROT03), SAP-Allee 27, 68789 St. Leon-Rot (Germany)',
-        'DESCRIPTION:' + removeForbiddenCharachtersOutlook(description),
-        'UID:' + '1',
-        'END:VEVENT',
-        'END:VCALENDAR'
-      ].join('\n');
-
-      return {
-        calendars: [
-          {
-            google: encodeURI([
-              'https://www.google.com/calendar/render',
-              '?action=TEMPLATE',
-              '&text=' + 'Save the Date: reCAP 2025',
-              '&dates=' + calendarStartDate ,
-              '/' + calendarEndDate,
-              '&location='+'SAP SE (ROT03), SAP-Allee 27, 68789 St. Leon-Rot (Germany)',
-              '&details=' + removeForbiddenCharachters(descriptionGoogle),
-              '&sprop=&sprop=name:'
-            ].join('')),
-            office365: encodeURI([
-              'https://outlook.office365.com/owa/',
-              '?path=/calendar/action/compose',
-              '&rru=addevent',
-              '&subject=' + 'Save the Date: reCAP 2025',
-              '&startdt=' + officeStartDate,
-              '&enddt=' + officeEndDate,
-              '&location=' + 'SAP SE (ROT03), SAP-Allee 27, 68789 St. Leon-Rot (Germany)',
-              '&body=' + removeForbiddenCharachters(descriptionOffice)
-            ].join('')),
-            ics: encodeURI('data:text/calendar;charset=utf8,' + cal)
-          }
-        ]
-      }
-    },
-  }
+  mounted() {},
+  methods: {}
 });
 
 var main = new Vue({
@@ -239,31 +148,6 @@ var main = new Vue({
       );
       this.groupExpertCornerTopics();
     });
-
-    this.updateLiveSession();
-
-    let interval;
-
-    let timeNow = new Date().toISOString();
-
-    const startCounterTime = new Date(
-      "2025-07-09T00:50:00.000+02:00"
-    ).toISOString();
-
-    const endCounterTime = new Date(
-      "2025-07-09T18:10:00.000+02:00"
-    ).toISOString();
-
-    if (timeNow > startCounterTime && timeNow <= endCounterTime) {
-      interval = setInterval(() => {
-        timeNow = new Date().toISOString();
-        if (timeNow > endCounterTime) {
-          clearInterval(interval);
-          return;
-        }
-        this.updateLiveSession();
-      }, 30000);
-    }
   },
   methods: {
     openSpeakerInfoModal(speakers, id) {
@@ -473,123 +357,10 @@ var main = new Vue({
         let newStartTime = "2025-07-09T" + start + ":00.000+02:00";
         let newEndTime = "2025-07-09T" + end + ":00.000+02:00";
 
-        let calendarStartDate = new Date(newStartTime)
-          .toISOString()
-          .replace(/-|:|\.\d+/g, "");
-        let calendarEndDate = new Date(newEndTime)
-          .toISOString()
-          .replace(/-|:|\.\d+/g, "");
-
-        let officeStartDate = new Date(newStartTime).toISOString();
-        let officeEndDate = new Date(newEndTime).toISOString();
-
-        const forbiddenCharacters = new RegExp("#", "g");
-        const removeForbiddenCharachters = (text) => {
-          if (typeof text === "string") {
-            let formattedText = text.replace(/(&amp;|&)/g, " and ");
-            return formattedText.replace(forbiddenCharacters, "");
-          }
-          return "";
-        };
-
-        const removeForbiddenCharachtersOutlook = (text) => {
-          if (typeof text === "string") {
-            let formattedText = text.replace(/(?:\r\n|\r|\n)/g, "\\n");
-            formattedText = formattedText.replace(/<br>/g, "\\n");
-            formattedText = formattedText.replace(/(&amp;|&)/g, " and ");
-            return formattedText.replace(forbiddenCharacters, "");
-          }
-          return "";
-        };
-        const sessionLocation = (location) => {
-          if (location.toLowerCase().includes("audimax")) {
-            return "Yellow Room";
-          } else if (
-            location.toLowerCase().includes("w1") ||
-            location.toLowerCase().includes("w2")
-          ) {
-            return "Blue Room";
-          } else if (location.toLowerCase().includes("w3")) {
-            return "Orange Room";
-          } else {
-            return location;
-          }
-        };
-
-        let cal = [
-          "BEGIN:VCALENDAR",
-          "VERSION:2.0",
-          "BEGIN:VEVENT",
-          "DTSTART:" + calendarStartDate,
-          "DTEND:" + calendarEndDate,
-          "SUMMARY:" +
-            "reCAP: " +
-            removeForbiddenCharachtersOutlook(session.title),
-          "LOCATION:" + sessionLocation(session.location),
-          "DESCRIPTION:" +
-            removeForbiddenCharachtersOutlook(session.description),
-          "UID:" + session.id,
-          "END:VEVENT",
-          "END:VCALENDAR",
-        ].join("\n");
-
-        let calDescription = "";
-
-        if (session.description) {
-          let formattedDescription = session.description.replace(/&amp;/g, "&");
-          calDescription = formattedDescription.replace(
-            /(?:\r\n|\r|\n)/g,
-            "<br>"
-          );
-        }
-
-        let timeNow = new Date().toISOString();
-        let sessionTimeStart = new Date(newStartTime).toISOString();
-        let sessionTimeEnd = new Date(newEndTime).toISOString();
-        let sessionLiveStatus = false;
-
-        if (timeNow > sessionTimeStart && timeNow < sessionTimeEnd) {
-          sessionLiveStatus = true;
-        }
-
         return {
           ...session,
           startTime: newStartTime,
-          endTime: newEndTime,
-          isLive: sessionLiveStatus,
-          calendars: [
-            {
-              google: encodeURI(
-                [
-                  "https://www.google.com/calendar/render",
-                  "?action=TEMPLATE",
-                  "&text=" +
-                    "reCAP: " +
-                    removeForbiddenCharachters(session.title),
-                  "&dates=" + calendarStartDate,
-                  "/" + calendarEndDate,
-                  "&location=" + sessionLocation(session.location),
-                  "&details=" + removeForbiddenCharachters(calDescription),
-                  "&sprop=&sprop=name:",
-                ].join("")
-              ),
-              office365: encodeURI(
-                [
-                  "https://outlook.office365.com/owa/",
-                  "?path=/calendar/action/compose",
-                  "&rru=addevent",
-                  "&subject=" +
-                    "reCAP: " +
-                    removeForbiddenCharachters(session.title),
-                  "&startdt=" + officeStartDate,
-                  "&enddt=" + officeEndDate,
-                  "&location=" + sessionLocation(session.location),
-                  "&body=" + removeForbiddenCharachters(calDescription),
-                ].join("")
-              ),
-              ics: encodeURI("data:text/calendar;charset=utf8," + cal),
-            },
-          ],
+          endTime: newEndTime
         };
       });
 
@@ -733,15 +504,6 @@ var main = new Vue({
 
       return decoded;
     },
-    updateLiveSession() {
-      return this.formattedLineup.map((session) => {
-        let timeNow = new Date().toISOString();
-        let sessionTimeStart = new Date(session.startTime).toISOString();
-        let sessionTimeEnd = new Date(session.endTime).toISOString();
-
-        session.isLive = timeNow >= sessionTimeStart && timeNow < sessionTimeEnd;
-      });
-    },
   },
   filters: {
     formatLocation: function (value) {
@@ -802,9 +564,7 @@ var main = new Vue({
 var footer = new Vue({
   el: '#footer',
   data() {
-    return {
-
-    };
+    return {};
   },
 });
 
