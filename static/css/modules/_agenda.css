@@ -329,7 +329,7 @@
 	  box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
 	}
 }
-  
+
 .agenda-time {
 	display: flex;
 	justify-content: center;
@@ -343,7 +343,7 @@
 	text-align: center;
 	transition: background-color 0.6s ease;
 }
-  
+
 .agenda-time.live {
 	animation: glowing-pulse 2s ease-in-out infinite;
 	background-color: #e60000;
@@ -566,6 +566,7 @@
 	text-align: center;
 	line-height: 1.7;
 	cursor: pointer;
+	font-size: 1rem;
 }
 
 .agenda-slot-linkitem:not(.is-calendar)[href*="github"]::before {
